@@ -1,0 +1,2252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Modelo.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="11.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ModeloStoreContainer">
+          <EntitySet Name="ASIENTO" EntityType="Modelo.Store.ASIENTO" store:Type="Tables" Schema="E_TICKET" />
+          <EntitySet Name="BOLETA" EntityType="Modelo.Store.BOLETA" store:Type="Tables" Schema="E_TICKET" />
+          <EntitySet Name="CLIENTE" EntityType="Modelo.Store.CLIENTE" store:Type="Tables" Schema="E_TICKET" />
+          <EntitySet Name="CLIENTE_INTERES" EntityType="Modelo.Store.CLIENTE_INTERES" store:Type="Tables" Schema="E_TICKET" />
+          <EntitySet Name="CLIENTE_TICKET" EntityType="Modelo.Store.CLIENTE_TICKET" store:Type="Tables" Schema="E_TICKET" />
+          <EntitySet Name="COMUNA" EntityType="Modelo.Store.COMUNA" store:Type="Tables" Schema="E_TICKET" />
+          <EntitySet Name="CONTRATO" EntityType="Modelo.Store.CONTRATO" store:Type="Tables" Schema="E_TICKET" />
+          <EntitySet Name="EVENTO" EntityType="Modelo.Store.EVENTO" store:Type="Tables" Schema="E_TICKET" />
+          <EntitySet Name="INTERES" EntityType="Modelo.Store.INTERES" store:Type="Tables" Schema="E_TICKET" />
+          <EntitySet Name="MENU" EntityType="Modelo.Store.MENU" store:Type="Tables" Schema="E_TICKET" />
+          <EntitySet Name="ORGANIZADOR" EntityType="Modelo.Store.ORGANIZADOR" store:Type="Tables" Schema="E_TICKET" />
+          <EntitySet Name="PERFIL" EntityType="Modelo.Store.PERFIL" store:Type="Tables" Schema="E_TICKET" />
+          <EntitySet Name="PERMISOS" EntityType="Modelo.Store.PERMISOS" store:Type="Tables" store:Schema="E_TICKET" store:Name="PERMISOS">
+            <DefiningQuery>SELECT 
+      "PERMISOS"."RUT" AS "RUT", 
+      "PERMISOS"."ID_TIPO_EVENTO" AS "ID_TIPO_EVENTO", 
+      "PERMISOS"."ID_RECINTO" AS "ID_RECINTO"
+      FROM "E_TICKET"."PERMISOS" "PERMISOS"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="RECINTO" EntityType="Modelo.Store.RECINTO" store:Type="Tables" Schema="E_TICKET" />
+          <EntitySet Name="REGION" EntityType="Modelo.Store.REGION" store:Type="Tables" Schema="E_TICKET" />
+          <EntitySet Name="TICKET" EntityType="Modelo.Store.TICKET" store:Type="Tables" Schema="E_TICKET" />
+          <EntitySet Name="TIPO_ASIENTO" EntityType="Modelo.Store.TIPO_ASIENTO" store:Type="Tables" store:Schema="E_TICKET" store:Name="TIPO_ASIENTO">
+            <DefiningQuery>SELECT 
+      "TIPO_ASIENTO"."ID_TIPO_ASIENTO" AS "ID_TIPO_ASIENTO", 
+      "TIPO_ASIENTO"."NOMBRE" AS "NOMBRE"
+      FROM "E_TICKET"."TIPO_ASIENTO" "TIPO_ASIENTO"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TIPO_EVENTO" EntityType="Modelo.Store.TIPO_EVENTO" store:Type="Tables" Schema="E_TICKET" />
+          <EntitySet Name="TIPO_PERFIL" EntityType="Modelo.Store.TIPO_PERFIL" store:Type="Tables" Schema="E_TICKET" />
+          <EntitySet Name="TIPO_TICKET" EntityType="Modelo.Store.TIPO_TICKET" store:Type="Tables" Schema="E_TICKET" />
+          <EntitySet Name="VENTA" EntityType="Modelo.Store.VENTA" store:Type="Tables" Schema="E_TICKET" />
+          <AssociationSet Name="ASIENTO_EVENTO_FK" Association="Modelo.Store.ASIENTO_EVENTO_FK">
+            <End Role="EVENTO" EntitySet="EVENTO" />
+            <End Role="ASIENTO" EntitySet="ASIENTO" />
+          </AssociationSet>
+          <AssociationSet Name="CLIENTE_COMUNA_FK" Association="Modelo.Store.CLIENTE_COMUNA_FK">
+            <End Role="COMUNA" EntitySet="COMUNA" />
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="CLIENTE_PERFIL_FK" Association="Modelo.Store.CLIENTE_PERFIL_FK">
+            <End Role="PERFIL" EntitySet="PERFIL" />
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="COMUNA_REGION_FK" Association="Modelo.Store.COMUNA_REGION_FK">
+            <End Role="REGION" EntitySet="REGION" />
+            <End Role="COMUNA" EntitySet="COMUNA" />
+          </AssociationSet>
+          <AssociationSet Name="CONTRATO_ORGANIZADOR_FK" Association="Modelo.Store.CONTRATO_ORGANIZADOR_FK">
+            <End Role="ORGANIZADOR" EntitySet="ORGANIZADOR" />
+            <End Role="CONTRATO" EntitySet="CONTRATO" />
+          </AssociationSet>
+          <AssociationSet Name="EVENTO_ORGANIZADOR_FK" Association="Modelo.Store.EVENTO_ORGANIZADOR_FK">
+            <End Role="ORGANIZADOR" EntitySet="ORGANIZADOR" />
+            <End Role="EVENTO" EntitySet="EVENTO" />
+          </AssociationSet>
+          <AssociationSet Name="EVENTO_RECINTO_FK" Association="Modelo.Store.EVENTO_RECINTO_FK">
+            <End Role="RECINTO" EntitySet="RECINTO" />
+            <End Role="EVENTO" EntitySet="EVENTO" />
+          </AssociationSet>
+          <AssociationSet Name="EVENTO_TIPO_EVENTO_FK" Association="Modelo.Store.EVENTO_TIPO_EVENTO_FK">
+            <End Role="TIPO_EVENTO" EntitySet="TIPO_EVENTO" />
+            <End Role="EVENTO" EntitySet="EVENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASS_1" Association="Modelo.Store.FK_ASS_1">
+            <End Role="VENTA" EntitySet="VENTA" />
+            <End Role="BOLETA" EntitySet="BOLETA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASS_10" Association="Modelo.Store.FK_ASS_10">
+            <End Role="TICKET" EntitySet="TICKET" />
+            <End Role="CLIENTE_TICKET" EntitySet="CLIENTE_TICKET" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASS_17" Association="Modelo.Store.FK_ASS_17">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="CLIENTE_INTERES" EntitySet="CLIENTE_INTERES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASS_18" Association="Modelo.Store.FK_ASS_18">
+            <End Role="INTERES" EntitySet="INTERES" />
+            <End Role="CLIENTE_INTERES" EntitySet="CLIENTE_INTERES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASS_9" Association="Modelo.Store.FK_ASS_9">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="CLIENTE_TICKET" EntitySet="CLIENTE_TICKET" />
+          </AssociationSet>
+          <AssociationSet Name="MENU_TIPO_PERFIL_FK" Association="Modelo.Store.MENU_TIPO_PERFIL_FK">
+            <End Role="TIPO_PERFIL" EntitySet="TIPO_PERFIL" />
+            <End Role="MENU" EntitySet="MENU" />
+          </AssociationSet>
+          <AssociationSet Name="ORGANIZADOR_COMUNA_FK" Association="Modelo.Store.ORGANIZADOR_COMUNA_FK">
+            <End Role="COMUNA" EntitySet="COMUNA" />
+            <End Role="ORGANIZADOR" EntitySet="ORGANIZADOR" />
+          </AssociationSet>
+          <AssociationSet Name="ORGANIZADOR_CONTRATO_FK" Association="Modelo.Store.ORGANIZADOR_CONTRATO_FK">
+            <End Role="CONTRATO" EntitySet="CONTRATO" />
+            <End Role="ORGANIZADOR" EntitySet="ORGANIZADOR" />
+          </AssociationSet>
+          <AssociationSet Name="ORGANIZADOR_PERFIL_FK" Association="Modelo.Store.ORGANIZADOR_PERFIL_FK">
+            <End Role="PERFIL" EntitySet="PERFIL" />
+            <End Role="ORGANIZADOR" EntitySet="ORGANIZADOR" />
+          </AssociationSet>
+          <AssociationSet Name="PERFIL_TIPO_PERFIL_FK" Association="Modelo.Store.PERFIL_TIPO_PERFIL_FK">
+            <End Role="TIPO_PERFIL" EntitySet="TIPO_PERFIL" />
+            <End Role="PERFIL" EntitySet="PERFIL" />
+          </AssociationSet>
+          <AssociationSet Name="PERMISOS_ORGANIZADOR_FK" Association="Modelo.Store.PERMISOS_ORGANIZADOR_FK">
+            <End Role="ORGANIZADOR" EntitySet="ORGANIZADOR" />
+            <End Role="PERMISOS" EntitySet="PERMISOS" />
+          </AssociationSet>
+          <AssociationSet Name="PERMISOS_RECINTO_FK" Association="Modelo.Store.PERMISOS_RECINTO_FK">
+            <End Role="RECINTO" EntitySet="RECINTO" />
+            <End Role="PERMISOS" EntitySet="PERMISOS" />
+          </AssociationSet>
+          <AssociationSet Name="PERMISOS_TIPO_EVENTO_FK" Association="Modelo.Store.PERMISOS_TIPO_EVENTO_FK">
+            <End Role="TIPO_EVENTO" EntitySet="TIPO_EVENTO" />
+            <End Role="PERMISOS" EntitySet="PERMISOS" />
+          </AssociationSet>
+          <AssociationSet Name="RECINTO_COMUNA_FK" Association="Modelo.Store.RECINTO_COMUNA_FK">
+            <End Role="COMUNA" EntitySet="COMUNA" />
+            <End Role="RECINTO" EntitySet="RECINTO" />
+          </AssociationSet>
+          <AssociationSet Name="TICKET_ASIENTO_FK" Association="Modelo.Store.TICKET_ASIENTO_FK">
+            <End Role="ASIENTO" EntitySet="ASIENTO" />
+            <End Role="TICKET" EntitySet="TICKET" />
+          </AssociationSet>
+          <AssociationSet Name="TICKET_EVENTO_FK" Association="Modelo.Store.TICKET_EVENTO_FK">
+            <End Role="EVENTO" EntitySet="EVENTO" />
+            <End Role="TICKET" EntitySet="TICKET" />
+          </AssociationSet>
+          <AssociationSet Name="TICKET_TIPO_TICKET_FK" Association="Modelo.Store.TICKET_TIPO_TICKET_FK">
+            <End Role="TIPO_TICKET" EntitySet="TIPO_TICKET" />
+            <End Role="TICKET" EntitySet="TICKET" />
+          </AssociationSet>
+          <AssociationSet Name="VENTA_ORGANIZADOR_FK" Association="Modelo.Store.VENTA_ORGANIZADOR_FK">
+            <End Role="ORGANIZADOR" EntitySet="ORGANIZADOR" />
+            <End Role="VENTA" EntitySet="VENTA" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ASIENTO">
+          <Key>
+            <PropertyRef Name="ID_ASIENTO" />
+          </Key>
+          <Property Name="ID_ASIENTO" Type="number" Nullable="false" />
+          <Property Name="NUMERO" Type="number" Nullable="false" />
+          <Property Name="ESTADO" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="ID_EVENTO" Type="number" Nullable="false" />
+          <Property Name="ID_TIPO_ASIENTO" Type="number" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BOLETA">
+          <Key>
+            <PropertyRef Name="VENTA_ID_VENTA" />
+          </Key>
+          <Property Name="VENTA_ID_VENTA" Type="number" Nullable="false" />
+          <Property Name="BOLETA_ID_BOLETA" Type="number" Nullable="false" />
+          <Property Name="BOLETA_PAGO" Type="number" Nullable="false" />
+          <Property Name="BOLETACANTIDADENTRADASVENDIDAS" Type="number" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="RUT" />
+          </Key>
+          <Property Name="RUT" Type="number" Nullable="false" />
+          <Property Name="DV" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="APELLIDO" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="DIRECCION" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="CORREO" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="CELULAR" Type="number" />
+          <Property Name="ID_COMUNA" Type="number" Nullable="false" />
+          <Property Name="ID_PERFIL" Type="number" />
+          <Property Name="ESTADO" Type="number" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CLIENTE_INTERES">
+          <Key>
+            <PropertyRef Name="ID_CLIENTE_INTERES" />
+          </Key>
+          <Property Name="CLIENTE_RUT" Type="number" Nullable="false" />
+          <Property Name="INTERES_ID_INTERES" Type="number" Nullable="false" />
+          <Property Name="ID_CLIENTE_INTERES" Type="number" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CLIENTE_TICKET">
+          <Key>
+            <PropertyRef Name="CLIENTE_RUT" />
+            <PropertyRef Name="TICKET_ID_TICKET" />
+          </Key>
+          <Property Name="CLIENTE_RUT" Type="number" Nullable="false" />
+          <Property Name="TICKET_ID_TICKET" Type="number" Nullable="false" />
+          <Property Name="CANTIDAD" Type="number" Nullable="false" />
+          <Property Name="REGALO" Type="char" MaxLength="1" />
+          <Property Name="TOTAL" Type="number" Nullable="false" />
+          <Property Name="CORREO" Type="varchar2" MaxLength="100" />
+          <Property Name="HABILITADO" Type="number" />
+        </EntityType>
+        <EntityType Name="COMUNA">
+          <Key>
+            <PropertyRef Name="ID_COMUNA" />
+          </Key>
+          <Property Name="ID_COMUNA" Type="number" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="ID_REGION" Type="number" />
+        </EntityType>
+        <EntityType Name="CONTRATO">
+          <Key>
+            <PropertyRef Name="ID_FOLIO" />
+          </Key>
+          <Property Name="ID_FOLIO" Type="number" Nullable="false" />
+          <Property Name="RUT" Type="number" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EVENTO">
+          <Key>
+            <PropertyRef Name="ID_EVENTO" />
+          </Key>
+          <Property Name="ID_EVENTO" Type="number" Nullable="false" />
+          <Property Name="ASIENTOS_DISPONIBLES" Type="number" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" Nullable="false" MaxLength="2000" />
+          <Property Name="ID_TIPO_EVENTO" Type="number" Nullable="false" />
+          <Property Name="ID_RECINTO" Type="number" Nullable="false" />
+          <Property Name="RUT" Type="number" Nullable="false" />
+          <Property Name="ESTADO" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="IMAGEN" Type="varchar2" MaxLength="255" />
+          <Property Name="FECHA" Type="date" />
+        </EntityType>
+        <EntityType Name="INTERES">
+          <Key>
+            <PropertyRef Name="ID_INTERES" />
+          </Key>
+          <Property Name="ID_INTERES" Type="number" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MENU">
+          <Key>
+            <PropertyRef Name="ID_MENU" />
+          </Key>
+          <Property Name="ID_MENU" Type="number" Nullable="false" />
+          <Property Name="CAMPO" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="URL_INTERNA" Type="varchar2" Nullable="false" MaxLength="255" />
+          <Property Name="ID_TIPO_PERFIL" Type="number" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORGANIZADOR">
+          <Key>
+            <PropertyRef Name="RUT" />
+          </Key>
+          <Property Name="RUT" Type="number" Nullable="false" />
+          <Property Name="DV" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="NOMBRE_RAZON_SOCIAL" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="GIRO" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="CORREO" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="DIRECCION" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="VALIDO" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="ID_FOLIO" Type="number" />
+          <Property Name="ID_COMUNA" Type="number" Nullable="false" />
+          <Property Name="ID_PERFIL" Type="number" Nullable="false" />
+          <Property Name="ESTADO" Type="number" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PERFIL">
+          <Key>
+            <PropertyRef Name="ID_PERFIL" />
+          </Key>
+          <Property Name="ID_PERFIL" Type="number" Nullable="false" />
+          <Property Name="USUARIO" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="CONTRASENA" Type="varchar2" Nullable="false" MaxLength="32" />
+          <Property Name="ID_TIPO_PERFIL" Type="number" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'E_TICKET.PERMISOS' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="PERMISOS">
+          <Key>
+            <PropertyRef Name="RUT" />
+            <PropertyRef Name="ID_TIPO_EVENTO" />
+            <PropertyRef Name="ID_RECINTO" />
+          </Key>
+          <Property Name="RUT" Type="number" Nullable="false" />
+          <Property Name="ID_TIPO_EVENTO" Type="number" Nullable="false" />
+          <Property Name="ID_RECINTO" Type="number" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RECINTO">
+          <Key>
+            <PropertyRef Name="ID_RECINTO" />
+          </Key>
+          <Property Name="ID_RECINTO" Type="number" Nullable="false" />
+          <Property Name="NOMBRE_RECINTO" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="DIRECCION_RECINTO" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="IMAGEN_RECINTO" Type="varchar2" Nullable="false" MaxLength="1000" />
+          <Property Name="ID_COMUNA" Type="number" Nullable="false" />
+          <Property Name="ESTADO" Type="number" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REGION">
+          <Key>
+            <PropertyRef Name="ID_REGION" />
+          </Key>
+          <Property Name="ID_REGION" Type="number" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TICKET">
+          <Key>
+            <PropertyRef Name="ID_TICKET" />
+          </Key>
+          <Property Name="ID_TICKET" Type="number" Nullable="false" />
+          <Property Name="ID_EVENTO" Type="number" Nullable="false" />
+          <Property Name="ID_TIPO_TICKET" Type="number" Nullable="false" />
+          <Property Name="ID_ASIENTO" Type="number" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'E_TICKET.TIPO_ASIENTO' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="TIPO_ASIENTO">
+          <Key>
+            <PropertyRef Name="ID_TIPO_ASIENTO" />
+            <PropertyRef Name="NOMBRE" />
+          </Key>
+          <Property Name="ID_TIPO_ASIENTO" Type="number" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TIPO_EVENTO">
+          <Key>
+            <PropertyRef Name="ID_TIPO_EVENTO" />
+          </Key>
+          <Property Name="ID_TIPO_EVENTO" Type="number" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TIPO_PERFIL">
+          <Key>
+            <PropertyRef Name="ID_TIPO_PERFIL" />
+          </Key>
+          <Property Name="ID_TIPO_PERFIL" Type="number" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TIPO_TICKET">
+          <Key>
+            <PropertyRef Name="ID_TIPO_TICKET" />
+          </Key>
+          <Property Name="ID_TIPO_TICKET" Type="number" Nullable="false" />
+          <Property Name="PRECIO" Type="number" Nullable="false" />
+          <Property Name="ID_EVENTO" Type="number" Nullable="false" />
+          <Property Name="ID_TIPO_ASIENTO" Type="number" />
+        </EntityType>
+        <EntityType Name="VENTA">
+          <Key>
+            <PropertyRef Name="VENTA_ID_VENTA" />
+          </Key>
+          <Property Name="VENTA_ID_VENTA" Type="number" Nullable="false" />
+          <Property Name="VENTA_ESTADO" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="VENTA_RUT" Type="number" Nullable="false" />
+        </EntityType>
+        <Association Name="ASIENTO_EVENTO_FK">
+          <End Role="EVENTO" Type="Modelo.Store.EVENTO" Multiplicity="1" />
+          <End Role="ASIENTO" Type="Modelo.Store.ASIENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EVENTO">
+              <PropertyRef Name="ID_EVENTO" />
+            </Principal>
+            <Dependent Role="ASIENTO">
+              <PropertyRef Name="ID_EVENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CLIENTE_COMUNA_FK">
+          <End Role="COMUNA" Type="Modelo.Store.COMUNA" Multiplicity="1" />
+          <End Role="CLIENTE" Type="Modelo.Store.CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMUNA">
+              <PropertyRef Name="ID_COMUNA" />
+            </Principal>
+            <Dependent Role="CLIENTE">
+              <PropertyRef Name="ID_COMUNA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CLIENTE_PERFIL_FK">
+          <End Role="PERFIL" Type="Modelo.Store.PERFIL" Multiplicity="0..1" />
+          <End Role="CLIENTE" Type="Modelo.Store.CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERFIL">
+              <PropertyRef Name="ID_PERFIL" />
+            </Principal>
+            <Dependent Role="CLIENTE">
+              <PropertyRef Name="ID_PERFIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="COMUNA_REGION_FK">
+          <End Role="REGION" Type="Modelo.Store.REGION" Multiplicity="0..1" />
+          <End Role="COMUNA" Type="Modelo.Store.COMUNA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REGION">
+              <PropertyRef Name="ID_REGION" />
+            </Principal>
+            <Dependent Role="COMUNA">
+              <PropertyRef Name="ID_REGION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CONTRATO_ORGANIZADOR_FK">
+          <End Role="ORGANIZADOR" Type="Modelo.Store.ORGANIZADOR" Multiplicity="1" />
+          <End Role="CONTRATO" Type="Modelo.Store.CONTRATO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORGANIZADOR">
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="CONTRATO">
+              <PropertyRef Name="RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EVENTO_ORGANIZADOR_FK">
+          <End Role="ORGANIZADOR" Type="Modelo.Store.ORGANIZADOR" Multiplicity="1" />
+          <End Role="EVENTO" Type="Modelo.Store.EVENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORGANIZADOR">
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="EVENTO">
+              <PropertyRef Name="RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EVENTO_RECINTO_FK">
+          <End Role="RECINTO" Type="Modelo.Store.RECINTO" Multiplicity="1" />
+          <End Role="EVENTO" Type="Modelo.Store.EVENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RECINTO">
+              <PropertyRef Name="ID_RECINTO" />
+            </Principal>
+            <Dependent Role="EVENTO">
+              <PropertyRef Name="ID_RECINTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EVENTO_TIPO_EVENTO_FK">
+          <End Role="TIPO_EVENTO" Type="Modelo.Store.TIPO_EVENTO" Multiplicity="1" />
+          <End Role="EVENTO" Type="Modelo.Store.EVENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_EVENTO">
+              <PropertyRef Name="ID_TIPO_EVENTO" />
+            </Principal>
+            <Dependent Role="EVENTO">
+              <PropertyRef Name="ID_TIPO_EVENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASS_1">
+          <End Role="VENTA" Type="Modelo.Store.VENTA" Multiplicity="1" />
+          <End Role="BOLETA" Type="Modelo.Store.BOLETA" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="VENTA">
+              <PropertyRef Name="VENTA_ID_VENTA" />
+            </Principal>
+            <Dependent Role="BOLETA">
+              <PropertyRef Name="VENTA_ID_VENTA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASS_10">
+          <End Role="TICKET" Type="Modelo.Store.TICKET" Multiplicity="1" />
+          <End Role="CLIENTE_TICKET" Type="Modelo.Store.CLIENTE_TICKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TICKET">
+              <PropertyRef Name="ID_TICKET" />
+            </Principal>
+            <Dependent Role="CLIENTE_TICKET">
+              <PropertyRef Name="TICKET_ID_TICKET" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASS_17">
+          <End Role="CLIENTE" Type="Modelo.Store.CLIENTE" Multiplicity="1" />
+          <End Role="CLIENTE_INTERES" Type="Modelo.Store.CLIENTE_INTERES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="CLIENTE_INTERES">
+              <PropertyRef Name="CLIENTE_RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASS_18">
+          <End Role="INTERES" Type="Modelo.Store.INTERES" Multiplicity="1" />
+          <End Role="CLIENTE_INTERES" Type="Modelo.Store.CLIENTE_INTERES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INTERES">
+              <PropertyRef Name="ID_INTERES" />
+            </Principal>
+            <Dependent Role="CLIENTE_INTERES">
+              <PropertyRef Name="INTERES_ID_INTERES" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASS_9">
+          <End Role="CLIENTE" Type="Modelo.Store.CLIENTE" Multiplicity="1" />
+          <End Role="CLIENTE_TICKET" Type="Modelo.Store.CLIENTE_TICKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="CLIENTE_TICKET">
+              <PropertyRef Name="CLIENTE_RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MENU_TIPO_PERFIL_FK">
+          <End Role="TIPO_PERFIL" Type="Modelo.Store.TIPO_PERFIL" Multiplicity="1" />
+          <End Role="MENU" Type="Modelo.Store.MENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_PERFIL">
+              <PropertyRef Name="ID_TIPO_PERFIL" />
+            </Principal>
+            <Dependent Role="MENU">
+              <PropertyRef Name="ID_TIPO_PERFIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ORGANIZADOR_COMUNA_FK">
+          <End Role="COMUNA" Type="Modelo.Store.COMUNA" Multiplicity="1" />
+          <End Role="ORGANIZADOR" Type="Modelo.Store.ORGANIZADOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMUNA">
+              <PropertyRef Name="ID_COMUNA" />
+            </Principal>
+            <Dependent Role="ORGANIZADOR">
+              <PropertyRef Name="ID_COMUNA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ORGANIZADOR_CONTRATO_FK">
+          <End Role="CONTRATO" Type="Modelo.Store.CONTRATO" Multiplicity="0..1" />
+          <End Role="ORGANIZADOR" Type="Modelo.Store.ORGANIZADOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CONTRATO">
+              <PropertyRef Name="ID_FOLIO" />
+            </Principal>
+            <Dependent Role="ORGANIZADOR">
+              <PropertyRef Name="ID_FOLIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ORGANIZADOR_PERFIL_FK">
+          <End Role="PERFIL" Type="Modelo.Store.PERFIL" Multiplicity="1" />
+          <End Role="ORGANIZADOR" Type="Modelo.Store.ORGANIZADOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERFIL">
+              <PropertyRef Name="ID_PERFIL" />
+            </Principal>
+            <Dependent Role="ORGANIZADOR">
+              <PropertyRef Name="ID_PERFIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PERFIL_TIPO_PERFIL_FK">
+          <End Role="TIPO_PERFIL" Type="Modelo.Store.TIPO_PERFIL" Multiplicity="1" />
+          <End Role="PERFIL" Type="Modelo.Store.PERFIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_PERFIL">
+              <PropertyRef Name="ID_TIPO_PERFIL" />
+            </Principal>
+            <Dependent Role="PERFIL">
+              <PropertyRef Name="ID_TIPO_PERFIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PERMISOS_ORGANIZADOR_FK">
+          <End Role="ORGANIZADOR" Type="Modelo.Store.ORGANIZADOR" Multiplicity="1" />
+          <End Role="PERMISOS" Type="Modelo.Store.PERMISOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORGANIZADOR">
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="PERMISOS">
+              <PropertyRef Name="RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PERMISOS_RECINTO_FK">
+          <End Role="RECINTO" Type="Modelo.Store.RECINTO" Multiplicity="1" />
+          <End Role="PERMISOS" Type="Modelo.Store.PERMISOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RECINTO">
+              <PropertyRef Name="ID_RECINTO" />
+            </Principal>
+            <Dependent Role="PERMISOS">
+              <PropertyRef Name="ID_RECINTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PERMISOS_TIPO_EVENTO_FK">
+          <End Role="TIPO_EVENTO" Type="Modelo.Store.TIPO_EVENTO" Multiplicity="1" />
+          <End Role="PERMISOS" Type="Modelo.Store.PERMISOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_EVENTO">
+              <PropertyRef Name="ID_TIPO_EVENTO" />
+            </Principal>
+            <Dependent Role="PERMISOS">
+              <PropertyRef Name="ID_TIPO_EVENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RECINTO_COMUNA_FK">
+          <End Role="COMUNA" Type="Modelo.Store.COMUNA" Multiplicity="1" />
+          <End Role="RECINTO" Type="Modelo.Store.RECINTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMUNA">
+              <PropertyRef Name="ID_COMUNA" />
+            </Principal>
+            <Dependent Role="RECINTO">
+              <PropertyRef Name="ID_COMUNA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TICKET_ASIENTO_FK">
+          <End Role="ASIENTO" Type="Modelo.Store.ASIENTO" Multiplicity="1" />
+          <End Role="TICKET" Type="Modelo.Store.TICKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ASIENTO">
+              <PropertyRef Name="ID_ASIENTO" />
+            </Principal>
+            <Dependent Role="TICKET">
+              <PropertyRef Name="ID_ASIENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TICKET_EVENTO_FK">
+          <End Role="EVENTO" Type="Modelo.Store.EVENTO" Multiplicity="1" />
+          <End Role="TICKET" Type="Modelo.Store.TICKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EVENTO">
+              <PropertyRef Name="ID_EVENTO" />
+            </Principal>
+            <Dependent Role="TICKET">
+              <PropertyRef Name="ID_EVENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TICKET_TIPO_TICKET_FK">
+          <End Role="TIPO_TICKET" Type="Modelo.Store.TIPO_TICKET" Multiplicity="1" />
+          <End Role="TICKET" Type="Modelo.Store.TICKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_TICKET">
+              <PropertyRef Name="ID_TIPO_TICKET" />
+            </Principal>
+            <Dependent Role="TICKET">
+              <PropertyRef Name="ID_TIPO_TICKET" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VENTA_ORGANIZADOR_FK">
+          <End Role="ORGANIZADOR" Type="Modelo.Store.ORGANIZADOR" Multiplicity="1" />
+          <End Role="VENTA" Type="Modelo.Store.VENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORGANIZADOR">
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="VENTA">
+              <PropertyRef Name="VENTA_RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="ASIENTO_TAPI_DEL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="ASIENTO_TAPI.DEL" Schema="E_TICKET">
+          <Parameter Name="P_ID_ASIENTO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="ASIENTO_TAPI_INS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="ASIENTO_TAPI.INS" Schema="E_TICKET">
+          <Parameter Name="P_ID_EVENTO" Type="number" Mode="In" />
+          <Parameter Name="P_ESTADO" Type="char" Mode="In" />
+          <Parameter Name="P_NUMERO" Type="number" Mode="In" />
+          <Parameter Name="P_ID_TIPO_ASIENTO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="ASIENTO_TAPI_UPD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="ASIENTO_TAPI.UPD" Schema="E_TICKET">
+          <Parameter Name="P_ID_EVENTO" Type="number" Mode="In" />
+          <Parameter Name="P_ESTADO" Type="char" Mode="In" />
+          <Parameter Name="P_ID_ASIENTO" Type="number" Mode="In" />
+          <Parameter Name="P_NUMERO" Type="number" Mode="In" />
+          <Parameter Name="P_ID_TIPO_ASIENTO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="CLIENTE_INTERES_TAPI_DEL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="CLIENTE_INTERES_TAPI.DEL" Schema="E_TICKET">
+          <Parameter Name="P_CLIENTE_RUT" Type="number" Mode="In" />
+        </Function>
+        <Function Name="CLIENTE_INTERES_TAPI_INS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="CLIENTE_INTERES_TAPI.INS" Schema="E_TICKET">
+          <Parameter Name="P_INTERES_ID_INTERES" Type="number" Mode="In" />
+          <Parameter Name="P_CLIENTE_RUT" Type="number" Mode="In" />
+        </Function>
+        <Function Name="CLIENTE_INTERES_TAPI_UPD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="CLIENTE_INTERES_TAPI.UPD" Schema="E_TICKET">
+          <Parameter Name="P_INTERES_ID_INTERES" Type="number" Mode="In" />
+          <Parameter Name="P_CLIENTE_RUT" Type="number" Mode="In" />
+          <Parameter Name="P_ID_CLIENTE_INTERES" Type="number" Mode="In" />
+        </Function>
+        <Function Name="CLIENTE_TAPI_DEL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="CLIENTE_TAPI.DEL" Schema="E_TICKET">
+          <Parameter Name="P_RUT" Type="number" Mode="In" />
+        </Function>
+        <Function Name="CLIENTE_TAPI_INS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="CLIENTE_TAPI.INS" Schema="E_TICKET">
+          <Parameter Name="P_ID_COMUNA" Type="number" Mode="In" />
+          <Parameter Name="P_ID_PERFIL" Type="number" Mode="In" />
+          <Parameter Name="P_DIRECCION" Type="varchar2" Mode="In" />
+          <Parameter Name="P_APELLIDO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+          <Parameter Name="P_CORREO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_RUT" Type="number" Mode="In" />
+          <Parameter Name="P_CELULAR" Type="number" Mode="In" />
+          <Parameter Name="P_DV" Type="char" Mode="In" />
+        </Function>
+        <Function Name="CLIENTE_TAPI_UPD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="CLIENTE_TAPI.UPD" Schema="E_TICKET">
+          <Parameter Name="P_ID_COMUNA" Type="number" Mode="In" />
+          <Parameter Name="P_ID_PERFIL" Type="number" Mode="In" />
+          <Parameter Name="P_DIRECCION" Type="varchar2" Mode="In" />
+          <Parameter Name="P_APELLIDO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+          <Parameter Name="P_CORREO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_RUT" Type="number" Mode="In" />
+          <Parameter Name="P_CELULAR" Type="number" Mode="In" />
+          <Parameter Name="P_DV" Type="char" Mode="In" />
+          <Parameter Name="P_ESTADO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="CLIENTE_TICKET_TAPI_DEL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="CLIENTE_TICKET_TAPI.DEL" Schema="E_TICKET">
+          <Parameter Name="P_TICKET_ID_TICKET" Type="number" Mode="In" />
+        </Function>
+        <Function Name="CLIENTE_TICKET_TAPI_INS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="CLIENTE_TICKET_TAPI.INS" Schema="E_TICKET">
+          <Parameter Name="P_CLIENTE_RUT" Type="number" Mode="In" />
+          <Parameter Name="P_TICKET_ID_TICKET" Type="number" Mode="In" />
+          <Parameter Name="P_CANTIDAD" Type="number" Mode="In" />
+          <Parameter Name="P_TOTAL" Type="number" Mode="In" />
+          <Parameter Name="P_REGALO" Type="char" Mode="In" />
+          <Parameter Name="P_CORREO" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="CLIENTE_TICKET_TAPI_UPD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="CLIENTE_TICKET_TAPI.UPD" Schema="E_TICKET">
+          <Parameter Name="P_CLIENTE_RUT" Type="number" Mode="In" />
+          <Parameter Name="P_TICKET_ID_TICKET" Type="number" Mode="In" />
+          <Parameter Name="P_CANTIDAD" Type="number" Mode="In" />
+          <Parameter Name="P_TOTAL" Type="number" Mode="In" />
+          <Parameter Name="P_REGALO" Type="char" Mode="In" />
+          <Parameter Name="P_CORREO" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="EVENTO_TAPI_DEL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="EVENTO_TAPI.DEL" Schema="E_TICKET">
+          <Parameter Name="P_ID_EVENTO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="EVENTO_TAPI_INS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="EVENTO_TAPI.INS" Schema="E_TICKET">
+          <Parameter Name="P_ID_RECINTO" Type="number" Mode="In" />
+          <Parameter Name="P_ASIENTOS_DISPONIBLES" Type="number" Mode="In" />
+          <Parameter Name="P_ESTADO" Type="char" Mode="In" />
+          <Parameter Name="P_RUT" Type="number" Mode="In" />
+          <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
+          <Parameter Name="P_ID_TIPO_EVENTO" Type="number" Mode="In" />
+          <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+          <Parameter Name="P_IMAGEN" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="EVENTO_TAPI_UPD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="EVENTO_TAPI.UPD" Schema="E_TICKET">
+          <Parameter Name="P_ID_RECINTO" Type="number" Mode="In" />
+          <Parameter Name="P_ASIENTOS_DISPONIBLES" Type="number" Mode="In" />
+          <Parameter Name="P_ESTADO" Type="char" Mode="In" />
+          <Parameter Name="P_RUT" Type="number" Mode="In" />
+          <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
+          <Parameter Name="P_ID_EVENTO" Type="number" Mode="In" />
+          <Parameter Name="P_ID_TIPO_EVENTO" Type="number" Mode="In" />
+          <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+          <Parameter Name="P_IMAGEN" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="INTERES_TAPI_DEL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="INTERES_TAPI.DEL" Schema="E_TICKET">
+          <Parameter Name="P_ID_INTERES" Type="number" Mode="In" />
+        </Function>
+        <Function Name="INTERES_TAPI_INS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="INTERES_TAPI.INS" Schema="E_TICKET">
+          <Parameter Name="P_ID_INTERES" Type="number" Mode="In" />
+          <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="INTERES_TAPI_UPD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="INTERES_TAPI.UPD" Schema="E_TICKET">
+          <Parameter Name="P_ID_INTERES" Type="number" Mode="In" />
+          <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="ORGANIZADOR_TAPI_DEL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="ORGANIZADOR_TAPI.DEL" Schema="E_TICKET">
+          <Parameter Name="P_RUT" Type="number" Mode="In" />
+        </Function>
+        <Function Name="ORGANIZADOR_TAPI_INS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="ORGANIZADOR_TAPI.INS" Schema="E_TICKET">
+          <Parameter Name="P_ID_COMUNA" Type="number" Mode="In" />
+          <Parameter Name="P_ID_PERFIL" Type="number" Mode="In" />
+          <Parameter Name="P_DIRECCION" Type="varchar2" Mode="In" />
+          <Parameter Name="P_GIRO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_CORREO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_RUT" Type="number" Mode="In" />
+          <Parameter Name="P_VALIDO" Type="char" Mode="In" />
+          <Parameter Name="P_NOMBRE_RAZON_SOCIAL" Type="varchar2" Mode="In" />
+          <Parameter Name="P_DV" Type="char" Mode="In" />
+        </Function>
+        <Function Name="ORGANIZADOR_TAPI_UPD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="ORGANIZADOR_TAPI.UPD" Schema="E_TICKET">
+          <Parameter Name="P_ID_COMUNA" Type="number" Mode="In" />
+          <Parameter Name="P_ID_PERFIL" Type="number" Mode="In" />
+          <Parameter Name="P_DIRECCION" Type="varchar2" Mode="In" />
+          <Parameter Name="P_GIRO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_ID_FOLIO" Type="number" Mode="In" />
+          <Parameter Name="P_CORREO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_RUT" Type="number" Mode="In" />
+          <Parameter Name="P_VALIDO" Type="char" Mode="In" />
+          <Parameter Name="P_NOMBRE_RAZON_SOCIAL" Type="varchar2" Mode="In" />
+          <Parameter Name="P_DV" Type="char" Mode="In" />
+          <Parameter Name="P_ESTADO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="PERFIL_TAPI_DEL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="PERFIL_TAPI.DEL" Schema="E_TICKET">
+          <Parameter Name="P_ID_PERFIL" Type="number" Mode="In" />
+        </Function>
+        <Function Name="PERFIL_TAPI_INS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="PERFIL_TAPI.INS" Schema="E_TICKET">
+          <Parameter Name="P_USUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_CONTRASENA" Type="varchar2" Mode="In" />
+          <Parameter Name="P_ID_TIPO_PERFIL" Type="number" Mode="In" />
+        </Function>
+        <Function Name="PERFIL_TAPI_UPD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="PERFIL_TAPI.UPD" Schema="E_TICKET">
+          <Parameter Name="P_ID_PERFIL" Type="number" Mode="In" />
+          <Parameter Name="P_USUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_CONTRASENA" Type="varchar2" Mode="In" />
+          <Parameter Name="P_ID_TIPO_PERFIL" Type="number" Mode="In" />
+        </Function>
+        <Function Name="RECINTO_TAPI_DEL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="RECINTO_TAPI.DEL" Schema="E_TICKET">
+          <Parameter Name="P_ID_RECINTO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="RECINTO_TAPI_INS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="RECINTO_TAPI.INS" Schema="E_TICKET">
+          <Parameter Name="P_ID_COMUNA" Type="number" Mode="In" />
+          <Parameter Name="P_ID_RECINTO" Type="number" Mode="In" />
+          <Parameter Name="P_NOMBRE_RECINTO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_IMAGEN_RECINTO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_DIRECCION_RECINTO" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="RECINTO_TAPI_UPD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="RECINTO_TAPI.UPD" Schema="E_TICKET">
+          <Parameter Name="P_ID_COMUNA" Type="number" Mode="In" />
+          <Parameter Name="P_ID_RECINTO" Type="number" Mode="In" />
+          <Parameter Name="P_NOMBRE_RECINTO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_IMAGEN_RECINTO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_DIRECCION_RECINTO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_ESTADO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="TICKET_TAPI_DEL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="TICKET_TAPI.DEL" Schema="E_TICKET">
+          <Parameter Name="P_ID_TICKET" Type="number" Mode="In" />
+        </Function>
+        <Function Name="TICKET_TAPI_INS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="TICKET_TAPI.INS" Schema="E_TICKET">
+          <Parameter Name="P_ID_TIPO_TICKET" Type="number" Mode="In" />
+          <Parameter Name="P_ID_ASIENTO" Type="number" Mode="In" />
+          <Parameter Name="P_ID_EVENTO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="TICKET_TAPI_UPD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="TICKET_TAPI.UPD" Schema="E_TICKET">
+          <Parameter Name="P_ID_TIPO_TICKET" Type="number" Mode="In" />
+          <Parameter Name="P_ID_TICKET" Type="number" Mode="In" />
+          <Parameter Name="P_ID_ASIENTO" Type="number" Mode="In" />
+          <Parameter Name="P_ID_EVENTO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="TIPO_EVENTO_TAPI_DEL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="TIPO_EVENTO_TAPI.DEL" Schema="E_TICKET">
+          <Parameter Name="P_ID_TIPO_EVENTO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="TIPO_EVENTO_TAPI_INS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="TIPO_EVENTO_TAPI.INS" Schema="E_TICKET">
+          <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
+          <Parameter Name="P_ID_TIPO_EVENTO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="TIPO_EVENTO_TAPI_UPD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="TIPO_EVENTO_TAPI.UPD" Schema="E_TICKET">
+          <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
+          <Parameter Name="P_ID_TIPO_EVENTO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="TIPO_TICKET_TAPI_DEL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="TIPO_TICKET_TAPI.DEL" Schema="E_TICKET">
+          <Parameter Name="P_ID_TIPO_TICKET" Type="number" Mode="In" />
+        </Function>
+        <Function Name="TIPO_TICKET_TAPI_INS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="TIPO_TICKET_TAPI.INS" Schema="E_TICKET">
+          <Parameter Name="P_PRECIO" Type="number" Mode="In" />
+          <Parameter Name="P_ID_TIPO_ASIENTO" Type="number" Mode="In" />
+          <Parameter Name="P_ID_EVENTO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="TIPO_TICKET_TAPI_UPD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="TIPO_TICKET_TAPI.UPD" Schema="E_TICKET">
+          <Parameter Name="P_ID_TIPO_TICKET" Type="number" Mode="In" />
+          <Parameter Name="P_PRECIO" Type="number" Mode="In" />
+          <Parameter Name="P_ID_TIPO_ASIENTO" Type="number" Mode="In" />
+          <Parameter Name="P_ID_EVENTO" Type="number" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Modelo" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="Entidades" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BOLETA" EntityType="Modelo.BOLETA" />
+          <EntitySet Name="CLIENTE" EntityType="Modelo.CLIENTE" />
+          <EntitySet Name="COMUNA" EntityType="Modelo.COMUNA" />
+          <EntitySet Name="CONTRATO" EntityType="Modelo.CONTRATO" />
+          <EntitySet Name="EVENTO" EntityType="Modelo.EVENTO" />
+          <EntitySet Name="INTERES" EntityType="Modelo.INTERES" />
+          <EntitySet Name="MENU" EntityType="Modelo.MENU" />
+          <EntitySet Name="ORGANIZADOR" EntityType="Modelo.ORGANIZADOR" />
+          <EntitySet Name="PERFIL" EntityType="Modelo.PERFIL" />
+          <EntitySet Name="PERMISOS" EntityType="Modelo.PERMISOS" />
+          <EntitySet Name="RECINTO" EntityType="Modelo.RECINTO" />
+          <EntitySet Name="REGION" EntityType="Modelo.REGION" />
+          <EntitySet Name="TIPO_EVENTO" EntityType="Modelo.TIPO_EVENTO" />
+          <EntitySet Name="TIPO_PERFIL" EntityType="Modelo.TIPO_PERFIL" />
+          <EntitySet Name="VENTA" EntityType="Modelo.VENTA" />
+          <AssociationSet Name="FK_ASS_1" Association="Modelo.FK_ASS_1">
+            <End Role="VENTA" EntitySet="VENTA" />
+            <End Role="BOLETA" EntitySet="BOLETA" />
+          </AssociationSet>
+          <AssociationSet Name="CLIENTE_COMUNA_FK" Association="Modelo.CLIENTE_COMUNA_FK">
+            <End Role="COMUNA" EntitySet="COMUNA" />
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="CLIENTE_PERFIL_FK" Association="Modelo.CLIENTE_PERFIL_FK">
+            <End Role="PERFIL" EntitySet="PERFIL" />
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="COMUNA_REGION_FK" Association="Modelo.COMUNA_REGION_FK">
+            <End Role="REGION" EntitySet="REGION" />
+            <End Role="COMUNA" EntitySet="COMUNA" />
+          </AssociationSet>
+          <AssociationSet Name="ORGANIZADOR_COMUNA_FK" Association="Modelo.ORGANIZADOR_COMUNA_FK">
+            <End Role="COMUNA" EntitySet="COMUNA" />
+            <End Role="ORGANIZADOR" EntitySet="ORGANIZADOR" />
+          </AssociationSet>
+          <AssociationSet Name="RECINTO_COMUNA_FK" Association="Modelo.RECINTO_COMUNA_FK">
+            <End Role="COMUNA" EntitySet="COMUNA" />
+            <End Role="RECINTO" EntitySet="RECINTO" />
+          </AssociationSet>
+          <AssociationSet Name="CONTRATO_ORGANIZADOR_FK" Association="Modelo.CONTRATO_ORGANIZADOR_FK">
+            <End Role="ORGANIZADOR" EntitySet="ORGANIZADOR" />
+            <End Role="CONTRATO" EntitySet="CONTRATO" />
+          </AssociationSet>
+          <AssociationSet Name="ORGANIZADOR_CONTRATO_FK" Association="Modelo.ORGANIZADOR_CONTRATO_FK">
+            <End Role="CONTRATO" EntitySet="CONTRATO" />
+            <End Role="ORGANIZADOR" EntitySet="ORGANIZADOR" />
+          </AssociationSet>
+          <AssociationSet Name="EVENTO_ORGANIZADOR_FK" Association="Modelo.EVENTO_ORGANIZADOR_FK">
+            <End Role="ORGANIZADOR" EntitySet="ORGANIZADOR" />
+            <End Role="EVENTO" EntitySet="EVENTO" />
+          </AssociationSet>
+          <AssociationSet Name="EVENTO_RECINTO_FK" Association="Modelo.EVENTO_RECINTO_FK">
+            <End Role="RECINTO" EntitySet="RECINTO" />
+            <End Role="EVENTO" EntitySet="EVENTO" />
+          </AssociationSet>
+          <AssociationSet Name="EVENTO_TIPO_EVENTO_FK" Association="Modelo.EVENTO_TIPO_EVENTO_FK">
+            <End Role="TIPO_EVENTO" EntitySet="TIPO_EVENTO" />
+            <End Role="EVENTO" EntitySet="EVENTO" />
+          </AssociationSet>
+          <AssociationSet Name="MENU_TIPO_PERFIL_FK" Association="Modelo.MENU_TIPO_PERFIL_FK">
+            <End Role="TIPO_PERFIL" EntitySet="TIPO_PERFIL" />
+            <End Role="MENU" EntitySet="MENU" />
+          </AssociationSet>
+          <AssociationSet Name="ORGANIZADOR_PERFIL_FK" Association="Modelo.ORGANIZADOR_PERFIL_FK">
+            <End Role="PERFIL" EntitySet="PERFIL" />
+            <End Role="ORGANIZADOR" EntitySet="ORGANIZADOR" />
+          </AssociationSet>
+          <AssociationSet Name="PERMISOS_ORGANIZADOR_FK" Association="Modelo.PERMISOS_ORGANIZADOR_FK">
+            <End Role="ORGANIZADOR" EntitySet="ORGANIZADOR" />
+            <End Role="PERMISOS" EntitySet="PERMISOS" />
+          </AssociationSet>
+          <AssociationSet Name="VENTA_ORGANIZADOR_FK" Association="Modelo.VENTA_ORGANIZADOR_FK">
+            <End Role="ORGANIZADOR" EntitySet="ORGANIZADOR" />
+            <End Role="VENTA" EntitySet="VENTA" />
+          </AssociationSet>
+          <AssociationSet Name="PERFIL_TIPO_PERFIL_FK" Association="Modelo.PERFIL_TIPO_PERFIL_FK">
+            <End Role="TIPO_PERFIL" EntitySet="TIPO_PERFIL" />
+            <End Role="PERFIL" EntitySet="PERFIL" />
+          </AssociationSet>
+          <AssociationSet Name="PERMISOS_RECINTO_FK" Association="Modelo.PERMISOS_RECINTO_FK">
+            <End Role="RECINTO" EntitySet="RECINTO" />
+            <End Role="PERMISOS" EntitySet="PERMISOS" />
+          </AssociationSet>
+          <AssociationSet Name="PERMISOS_TIPO_EVENTO_FK" Association="Modelo.PERMISOS_TIPO_EVENTO_FK">
+            <End Role="TIPO_EVENTO" EntitySet="TIPO_EVENTO" />
+            <End Role="PERMISOS" EntitySet="PERMISOS" />
+          </AssociationSet>
+          <EntitySet Name="CLIENTE_INTERES" EntityType="Modelo.CLIENTE_INTERES" />
+          <AssociationSet Name="FK_ASS_17" Association="Modelo.FK_ASS_17">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="CLIENTE_INTERES" EntitySet="CLIENTE_INTERES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASS_18" Association="Modelo.FK_ASS_18">
+            <End Role="INTERES" EntitySet="INTERES" />
+            <End Role="CLIENTE_INTERES" EntitySet="CLIENTE_INTERES" />
+          </AssociationSet>
+          <EntitySet Name="TIPO_ASIENTO" EntityType="Modelo.TIPO_ASIENTO" />
+          <EntitySet Name="TICKET" EntityType="Modelo.TICKET" />
+          <AssociationSet Name="TICKET_EVENTO_FK" Association="Modelo.TICKET_EVENTO_FK">
+            <End Role="EVENTO" EntitySet="EVENTO" />
+            <End Role="TICKET" EntitySet="TICKET" />
+          </AssociationSet>
+          <EntitySet Name="TIPO_TICKET" EntityType="Modelo.TIPO_TICKET" />
+          <AssociationSet Name="TICKET_TIPO_TICKET_FK" Association="Modelo.TICKET_TIPO_TICKET_FK">
+            <End Role="TIPO_TICKET" EntitySet="TIPO_TICKET" />
+            <End Role="TICKET" EntitySet="TICKET" />
+          </AssociationSet>
+          <EntitySet Name="CLIENTE_TICKET" EntityType="Modelo.CLIENTE_TICKET" />
+          <AssociationSet Name="FK_ASS_9" Association="Modelo.FK_ASS_9">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="CLIENTE_TICKET" EntitySet="CLIENTE_TICKET" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASS_10" Association="Modelo.FK_ASS_10">
+            <End Role="TICKET" EntitySet="TICKET" />
+            <End Role="CLIENTE_TICKET" EntitySet="CLIENTE_TICKET" />
+          </AssociationSet>
+          <EntitySet Name="ASIENTO" EntityType="Modelo.ASIENTO" />
+          <AssociationSet Name="ASIENTO_EVENTO_FK" Association="Modelo.ASIENTO_EVENTO_FK">
+            <End Role="EVENTO" EntitySet="EVENTO" />
+            <End Role="ASIENTO" EntitySet="ASIENTO" />
+          </AssociationSet>
+          <AssociationSet Name="TICKET_ASIENTO_FK" Association="Modelo.TICKET_ASIENTO_FK">
+            <End Role="ASIENTO" EntitySet="ASIENTO" />
+            <End Role="TICKET" EntitySet="TICKET" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="BOLETA">
+          <Key>
+            <PropertyRef Name="VENTA_ID_VENTA" />
+          </Key>
+          <Property Name="VENTA_ID_VENTA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="BOLETA_ID_BOLETA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="BOLETA_PAGO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="BOLETACANTIDADENTRADASVENDIDAS" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="VENTA" Relationship="Modelo.FK_ASS_1" FromRole="BOLETA" ToRole="VENTA" />
+        </EntityType>
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="RUT" />
+          </Key>
+          <Property Name="RUT" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="DV" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="APELLIDO" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DIRECCION" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="CORREO" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="CELULAR" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ID_COMUNA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="ID_PERFIL" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="COMUNA" Relationship="Modelo.CLIENTE_COMUNA_FK" FromRole="CLIENTE" ToRole="COMUNA" />
+          <NavigationProperty Name="PERFIL" Relationship="Modelo.CLIENTE_PERFIL_FK" FromRole="CLIENTE" ToRole="PERFIL" />
+          <NavigationProperty Name="CLIENTE_INTERES" Relationship="Modelo.FK_ASS_17" FromRole="CLIENTE" ToRole="CLIENTE_INTERES" />
+          <Property Type="Decimal" Name="ESTADO" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="CLIENTE_TICKET" Relationship="Modelo.FK_ASS_9" FromRole="CLIENTE" ToRole="CLIENTE_TICKET" />
+        </EntityType>
+        <EntityType Name="COMUNA">
+          <Key>
+            <PropertyRef Name="ID_COMUNA" />
+          </Key>
+          <Property Name="ID_COMUNA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="ID_REGION" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="CLIENTE" Relationship="Modelo.CLIENTE_COMUNA_FK" FromRole="COMUNA" ToRole="CLIENTE" />
+          <NavigationProperty Name="REGION" Relationship="Modelo.COMUNA_REGION_FK" FromRole="COMUNA" ToRole="REGION" />
+          <NavigationProperty Name="ORGANIZADOR" Relationship="Modelo.ORGANIZADOR_COMUNA_FK" FromRole="COMUNA" ToRole="ORGANIZADOR" />
+          <NavigationProperty Name="RECINTO" Relationship="Modelo.RECINTO_COMUNA_FK" FromRole="COMUNA" ToRole="RECINTO" />
+        </EntityType>
+        <EntityType Name="CONTRATO">
+          <Key>
+            <PropertyRef Name="ID_FOLIO" />
+          </Key>
+          <Property Name="ID_FOLIO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="RUT" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="ORGANIZADOR" Relationship="Modelo.CONTRATO_ORGANIZADOR_FK" FromRole="CONTRATO" ToRole="ORGANIZADOR" />
+          <NavigationProperty Name="ORGANIZADOR1" Relationship="Modelo.ORGANIZADOR_CONTRATO_FK" FromRole="CONTRATO" ToRole="ORGANIZADOR" />
+        </EntityType>
+        <EntityType Name="EVENTO">
+          <Key>
+            <PropertyRef Name="ID_EVENTO" />
+          </Key>
+          <Property Name="ID_EVENTO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="ASIENTOS_DISPONIBLES" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="ID_TIPO_EVENTO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="ID_RECINTO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="RUT" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <NavigationProperty Name="ORGANIZADOR" Relationship="Modelo.EVENTO_ORGANIZADOR_FK" FromRole="EVENTO" ToRole="ORGANIZADOR" />
+          <NavigationProperty Name="RECINTO" Relationship="Modelo.EVENTO_RECINTO_FK" FromRole="EVENTO" ToRole="RECINTO" />
+          <NavigationProperty Name="TIPO_EVENTO" Relationship="Modelo.EVENTO_TIPO_EVENTO_FK" FromRole="EVENTO" ToRole="TIPO_EVENTO" />
+          <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IMAGEN" />
+          <Property Type="DateTime" Name="FECHA" />
+          <NavigationProperty Name="TICKET" Relationship="Modelo.TICKET_EVENTO_FK" FromRole="EVENTO" ToRole="TICKET" />
+          <NavigationProperty Name="ASIENTO" Relationship="Modelo.ASIENTO_EVENTO_FK" FromRole="EVENTO" ToRole="ASIENTO" />
+        </EntityType>
+        <EntityType Name="INTERES">
+          <Key>
+            <PropertyRef Name="ID_INTERES" />
+          </Key>
+          <Property Name="ID_INTERES" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="CLIENTE_INTERES" Relationship="Modelo.FK_ASS_18" FromRole="INTERES" ToRole="CLIENTE_INTERES" />
+        </EntityType>
+        <EntityType Name="MENU">
+          <Key>
+            <PropertyRef Name="ID_MENU" />
+          </Key>
+          <Property Name="ID_MENU" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="CAMPO" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="URL_INTERNA" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="ID_TIPO_PERFIL" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="TIPO_PERFIL" Relationship="Modelo.MENU_TIPO_PERFIL_FK" FromRole="MENU" ToRole="TIPO_PERFIL" />
+        </EntityType>
+        <EntityType Name="ORGANIZADOR">
+          <Key>
+            <PropertyRef Name="RUT" />
+          </Key>
+          <Property Name="RUT" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="DV" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="NOMBRE_RAZON_SOCIAL" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="GIRO" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="CORREO" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="DIRECCION" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="VALIDO" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="ID_FOLIO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="ID_COMUNA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="ID_PERFIL" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="COMUNA" Relationship="Modelo.ORGANIZADOR_COMUNA_FK" FromRole="ORGANIZADOR" ToRole="COMUNA" />
+          <NavigationProperty Name="CONTRATO" Relationship="Modelo.CONTRATO_ORGANIZADOR_FK" FromRole="ORGANIZADOR" ToRole="CONTRATO" />
+          <NavigationProperty Name="CONTRATO1" Relationship="Modelo.ORGANIZADOR_CONTRATO_FK" FromRole="ORGANIZADOR" ToRole="CONTRATO" />
+          <NavigationProperty Name="EVENTO" Relationship="Modelo.EVENTO_ORGANIZADOR_FK" FromRole="ORGANIZADOR" ToRole="EVENTO" />
+          <NavigationProperty Name="PERFIL" Relationship="Modelo.ORGANIZADOR_PERFIL_FK" FromRole="ORGANIZADOR" ToRole="PERFIL" />
+          <NavigationProperty Name="PERMISOS" Relationship="Modelo.PERMISOS_ORGANIZADOR_FK" FromRole="ORGANIZADOR" ToRole="PERMISOS" />
+          <NavigationProperty Name="VENTA" Relationship="Modelo.VENTA_ORGANIZADOR_FK" FromRole="ORGANIZADOR" ToRole="VENTA" />
+          <Property Type="Decimal" Name="ESTADO" Nullable="false" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="PERFIL">
+          <Key>
+            <PropertyRef Name="ID_PERFIL" />
+          </Key>
+          <Property Name="ID_PERFIL" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="USUARIO" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="CONTRASENA" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Name="ID_TIPO_PERFIL" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="CLIENTE" Relationship="Modelo.CLIENTE_PERFIL_FK" FromRole="PERFIL" ToRole="CLIENTE" />
+          <NavigationProperty Name="ORGANIZADOR" Relationship="Modelo.ORGANIZADOR_PERFIL_FK" FromRole="PERFIL" ToRole="ORGANIZADOR" />
+          <NavigationProperty Name="TIPO_PERFIL" Relationship="Modelo.PERFIL_TIPO_PERFIL_FK" FromRole="PERFIL" ToRole="TIPO_PERFIL" />
+        </EntityType>
+        <EntityType Name="PERMISOS">
+          <Key>
+            <PropertyRef Name="RUT" />
+            <PropertyRef Name="ID_TIPO_EVENTO" />
+            <PropertyRef Name="ID_RECINTO" />
+          </Key>
+          <Property Name="RUT" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="ID_TIPO_EVENTO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="ID_RECINTO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="ORGANIZADOR" Relationship="Modelo.PERMISOS_ORGANIZADOR_FK" FromRole="PERMISOS" ToRole="ORGANIZADOR" />
+          <NavigationProperty Name="RECINTO" Relationship="Modelo.PERMISOS_RECINTO_FK" FromRole="PERMISOS" ToRole="RECINTO" />
+          <NavigationProperty Name="TIPO_EVENTO" Relationship="Modelo.PERMISOS_TIPO_EVENTO_FK" FromRole="PERMISOS" ToRole="TIPO_EVENTO" />
+        </EntityType>
+        <EntityType Name="RECINTO">
+          <Key>
+            <PropertyRef Name="ID_RECINTO" />
+          </Key>
+          <Property Name="ID_RECINTO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="NOMBRE_RECINTO" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="DIRECCION_RECINTO" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="IMAGEN_RECINTO" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="ID_COMUNA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="COMUNA" Relationship="Modelo.RECINTO_COMUNA_FK" FromRole="RECINTO" ToRole="COMUNA" />
+          <NavigationProperty Name="EVENTO" Relationship="Modelo.EVENTO_RECINTO_FK" FromRole="RECINTO" ToRole="EVENTO" />
+          <NavigationProperty Name="PERMISOS" Relationship="Modelo.PERMISOS_RECINTO_FK" FromRole="RECINTO" ToRole="PERMISOS" />
+          <Property Type="Decimal" Name="ESTADO" Nullable="false" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="REGION">
+          <Key>
+            <PropertyRef Name="ID_REGION" />
+          </Key>
+          <Property Name="ID_REGION" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="COMUNA" Relationship="Modelo.COMUNA_REGION_FK" FromRole="REGION" ToRole="COMUNA" />
+        </EntityType>
+        <EntityType Name="TIPO_EVENTO">
+          <Key>
+            <PropertyRef Name="ID_TIPO_EVENTO" />
+          </Key>
+          <Property Name="ID_TIPO_EVENTO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="EVENTO" Relationship="Modelo.EVENTO_TIPO_EVENTO_FK" FromRole="TIPO_EVENTO" ToRole="EVENTO" />
+          <NavigationProperty Name="PERMISOS" Relationship="Modelo.PERMISOS_TIPO_EVENTO_FK" FromRole="TIPO_EVENTO" ToRole="PERMISOS" />
+        </EntityType>
+        <EntityType Name="TIPO_PERFIL">
+          <Key>
+            <PropertyRef Name="ID_TIPO_PERFIL" />
+          </Key>
+          <Property Name="ID_TIPO_PERFIL" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="MENU" Relationship="Modelo.MENU_TIPO_PERFIL_FK" FromRole="TIPO_PERFIL" ToRole="MENU" />
+          <NavigationProperty Name="PERFIL" Relationship="Modelo.PERFIL_TIPO_PERFIL_FK" FromRole="TIPO_PERFIL" ToRole="PERFIL" />
+        </EntityType>
+        <EntityType Name="VENTA">
+          <Key>
+            <PropertyRef Name="VENTA_ID_VENTA" />
+          </Key>
+          <Property Name="VENTA_ID_VENTA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="VENTA_ESTADO" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="VENTA_RUT" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="BOLETA" Relationship="Modelo.FK_ASS_1" FromRole="VENTA" ToRole="BOLETA" />
+          <NavigationProperty Name="ORGANIZADOR" Relationship="Modelo.VENTA_ORGANIZADOR_FK" FromRole="VENTA" ToRole="ORGANIZADOR" />
+        </EntityType>
+        <Association Name="FK_ASS_1">
+          <End Role="VENTA" Type="Modelo.VENTA" Multiplicity="1" />
+          <End Role="BOLETA" Type="Modelo.BOLETA" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="VENTA">
+              <PropertyRef Name="VENTA_ID_VENTA" />
+            </Principal>
+            <Dependent Role="BOLETA">
+              <PropertyRef Name="VENTA_ID_VENTA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CLIENTE_COMUNA_FK">
+          <End Role="COMUNA" Type="Modelo.COMUNA" Multiplicity="1" />
+          <End Role="CLIENTE" Type="Modelo.CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMUNA">
+              <PropertyRef Name="ID_COMUNA" />
+            </Principal>
+            <Dependent Role="CLIENTE">
+              <PropertyRef Name="ID_COMUNA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CLIENTE_PERFIL_FK">
+          <End Role="PERFIL" Type="Modelo.PERFIL" Multiplicity="0..1" />
+          <End Role="CLIENTE" Type="Modelo.CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERFIL">
+              <PropertyRef Name="ID_PERFIL" />
+            </Principal>
+            <Dependent Role="CLIENTE">
+              <PropertyRef Name="ID_PERFIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="COMUNA_REGION_FK">
+          <End Role="REGION" Type="Modelo.REGION" Multiplicity="0..1" />
+          <End Role="COMUNA" Type="Modelo.COMUNA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REGION">
+              <PropertyRef Name="ID_REGION" />
+            </Principal>
+            <Dependent Role="COMUNA">
+              <PropertyRef Name="ID_REGION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ORGANIZADOR_COMUNA_FK">
+          <End Role="COMUNA" Type="Modelo.COMUNA" Multiplicity="1" />
+          <End Role="ORGANIZADOR" Type="Modelo.ORGANIZADOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMUNA">
+              <PropertyRef Name="ID_COMUNA" />
+            </Principal>
+            <Dependent Role="ORGANIZADOR">
+              <PropertyRef Name="ID_COMUNA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RECINTO_COMUNA_FK">
+          <End Role="COMUNA" Type="Modelo.COMUNA" Multiplicity="1" />
+          <End Role="RECINTO" Type="Modelo.RECINTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMUNA">
+              <PropertyRef Name="ID_COMUNA" />
+            </Principal>
+            <Dependent Role="RECINTO">
+              <PropertyRef Name="ID_COMUNA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CONTRATO_ORGANIZADOR_FK">
+          <End Role="ORGANIZADOR" Type="Modelo.ORGANIZADOR" Multiplicity="1" />
+          <End Role="CONTRATO" Type="Modelo.CONTRATO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORGANIZADOR">
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="CONTRATO">
+              <PropertyRef Name="RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ORGANIZADOR_CONTRATO_FK">
+          <End Role="CONTRATO" Type="Modelo.CONTRATO" Multiplicity="1" />
+          <End Role="ORGANIZADOR" Type="Modelo.ORGANIZADOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CONTRATO">
+              <PropertyRef Name="ID_FOLIO" />
+            </Principal>
+            <Dependent Role="ORGANIZADOR">
+              <PropertyRef Name="ID_FOLIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EVENTO_ORGANIZADOR_FK">
+          <End Role="ORGANIZADOR" Type="Modelo.ORGANIZADOR" Multiplicity="1" />
+          <End Role="EVENTO" Type="Modelo.EVENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORGANIZADOR">
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="EVENTO">
+              <PropertyRef Name="RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EVENTO_RECINTO_FK">
+          <End Role="RECINTO" Type="Modelo.RECINTO" Multiplicity="1" />
+          <End Role="EVENTO" Type="Modelo.EVENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RECINTO">
+              <PropertyRef Name="ID_RECINTO" />
+            </Principal>
+            <Dependent Role="EVENTO">
+              <PropertyRef Name="ID_RECINTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EVENTO_TIPO_EVENTO_FK">
+          <End Role="TIPO_EVENTO" Type="Modelo.TIPO_EVENTO" Multiplicity="1" />
+          <End Role="EVENTO" Type="Modelo.EVENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_EVENTO">
+              <PropertyRef Name="ID_TIPO_EVENTO" />
+            </Principal>
+            <Dependent Role="EVENTO">
+              <PropertyRef Name="ID_TIPO_EVENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MENU_TIPO_PERFIL_FK">
+          <End Role="TIPO_PERFIL" Type="Modelo.TIPO_PERFIL" Multiplicity="1" />
+          <End Role="MENU" Type="Modelo.MENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_PERFIL">
+              <PropertyRef Name="ID_TIPO_PERFIL" />
+            </Principal>
+            <Dependent Role="MENU">
+              <PropertyRef Name="ID_TIPO_PERFIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ORGANIZADOR_PERFIL_FK">
+          <End Role="PERFIL" Type="Modelo.PERFIL" Multiplicity="1" />
+          <End Role="ORGANIZADOR" Type="Modelo.ORGANIZADOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERFIL">
+              <PropertyRef Name="ID_PERFIL" />
+            </Principal>
+            <Dependent Role="ORGANIZADOR">
+              <PropertyRef Name="ID_PERFIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PERMISOS_ORGANIZADOR_FK">
+          <End Role="ORGANIZADOR" Type="Modelo.ORGANIZADOR" Multiplicity="1" />
+          <End Role="PERMISOS" Type="Modelo.PERMISOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORGANIZADOR">
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="PERMISOS">
+              <PropertyRef Name="RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VENTA_ORGANIZADOR_FK">
+          <End Role="ORGANIZADOR" Type="Modelo.ORGANIZADOR" Multiplicity="1" />
+          <End Role="VENTA" Type="Modelo.VENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORGANIZADOR">
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="VENTA">
+              <PropertyRef Name="VENTA_RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PERFIL_TIPO_PERFIL_FK">
+          <End Role="TIPO_PERFIL" Type="Modelo.TIPO_PERFIL" Multiplicity="1" />
+          <End Role="PERFIL" Type="Modelo.PERFIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_PERFIL">
+              <PropertyRef Name="ID_TIPO_PERFIL" />
+            </Principal>
+            <Dependent Role="PERFIL">
+              <PropertyRef Name="ID_TIPO_PERFIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PERMISOS_RECINTO_FK">
+          <End Role="RECINTO" Type="Modelo.RECINTO" Multiplicity="1" />
+          <End Role="PERMISOS" Type="Modelo.PERMISOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RECINTO">
+              <PropertyRef Name="ID_RECINTO" />
+            </Principal>
+            <Dependent Role="PERMISOS">
+              <PropertyRef Name="ID_RECINTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PERMISOS_TIPO_EVENTO_FK">
+          <End Role="TIPO_EVENTO" Type="Modelo.TIPO_EVENTO" Multiplicity="1" />
+          <End Role="PERMISOS" Type="Modelo.PERMISOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_EVENTO">
+              <PropertyRef Name="ID_TIPO_EVENTO" />
+            </Principal>
+            <Dependent Role="PERMISOS">
+              <PropertyRef Name="ID_TIPO_EVENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CLIENTE_INTERES">
+          <Key>
+            <PropertyRef Name="ID_CLIENTE_INTERES" />
+          </Key>
+          <Property Type="Decimal" Name="CLIENTE_RUT" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="INTERES_ID_INTERES" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="ID_CLIENTE_INTERES" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="CLIENTE" Relationship="Modelo.FK_ASS_17" FromRole="CLIENTE_INTERES" ToRole="CLIENTE" />
+          <NavigationProperty Name="INTERES" Relationship="Modelo.FK_ASS_18" FromRole="CLIENTE_INTERES" ToRole="INTERES" />
+        </EntityType>
+        <Association Name="FK_ASS_17">
+          <End Type="Modelo.CLIENTE" Role="CLIENTE" Multiplicity="1" />
+          <End Type="Modelo.CLIENTE_INTERES" Role="CLIENTE_INTERES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="CLIENTE_INTERES">
+              <PropertyRef Name="CLIENTE_RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASS_18">
+          <End Type="Modelo.INTERES" Role="INTERES" Multiplicity="1" />
+          <End Type="Modelo.CLIENTE_INTERES" Role="CLIENTE_INTERES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INTERES">
+              <PropertyRef Name="ID_INTERES" />
+            </Principal>
+            <Dependent Role="CLIENTE_INTERES">
+              <PropertyRef Name="INTERES_ID_INTERES" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TIPO_ASIENTO">
+          <Key>
+            <PropertyRef Name="ID_TIPO_ASIENTO" />
+            <PropertyRef Name="NOMBRE" />
+          </Key>
+          <Property Type="Decimal" Name="ID_TIPO_ASIENTO" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TICKET">
+          <Key>
+            <PropertyRef Name="ID_TICKET" />
+          </Key>
+          <Property Type="Decimal" Name="ID_TICKET" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="ID_EVENTO" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="ID_TIPO_TICKET" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="ID_ASIENTO" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="EVENTO" Relationship="Modelo.TICKET_EVENTO_FK" FromRole="TICKET" ToRole="EVENTO" />
+          <NavigationProperty Name="TIPO_TICKET" Relationship="Modelo.TICKET_TIPO_TICKET_FK" FromRole="TICKET" ToRole="TIPO_TICKET" />
+          <NavigationProperty Name="CLIENTE_TICKET" Relationship="Modelo.FK_ASS_10" FromRole="TICKET" ToRole="CLIENTE_TICKET" />
+          <NavigationProperty Name="ASIENTO" Relationship="Modelo.TICKET_ASIENTO_FK" FromRole="TICKET" ToRole="ASIENTO" />
+        </EntityType>
+        <Association Name="TICKET_EVENTO_FK">
+          <End Type="Modelo.EVENTO" Role="EVENTO" Multiplicity="1" />
+          <End Type="Modelo.TICKET" Role="TICKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EVENTO">
+              <PropertyRef Name="ID_EVENTO" />
+            </Principal>
+            <Dependent Role="TICKET">
+              <PropertyRef Name="ID_EVENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TIPO_TICKET">
+          <Key>
+            <PropertyRef Name="ID_TIPO_TICKET" />
+          </Key>
+          <Property Type="Decimal" Name="ID_TIPO_TICKET" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="PRECIO" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="ID_EVENTO" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="ID_TIPO_ASIENTO" Precision="38" Scale="0" />
+          <NavigationProperty Name="TICKET" Relationship="Modelo.TICKET_TIPO_TICKET_FK" FromRole="TIPO_TICKET" ToRole="TICKET" />
+        </EntityType>
+        <Association Name="TICKET_TIPO_TICKET_FK">
+          <End Type="Modelo.TIPO_TICKET" Role="TIPO_TICKET" Multiplicity="1" />
+          <End Type="Modelo.TICKET" Role="TICKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_TICKET">
+              <PropertyRef Name="ID_TIPO_TICKET" />
+            </Principal>
+            <Dependent Role="TICKET">
+              <PropertyRef Name="ID_TIPO_TICKET" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CLIENTE_TICKET">
+          <Key>
+            <PropertyRef Name="CLIENTE_RUT" />
+            <PropertyRef Name="TICKET_ID_TICKET" />
+          </Key>
+          <Property Type="Decimal" Name="CLIENTE_RUT" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="TICKET_ID_TICKET" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="CANTIDAD" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="String" Name="REGALO" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Decimal" Name="TOTAL" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="String" Name="CORREO" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="HABILITADO" Precision="38" Scale="0" />
+          <NavigationProperty Name="CLIENTE" Relationship="Modelo.FK_ASS_9" FromRole="CLIENTE_TICKET" ToRole="CLIENTE" />
+          <NavigationProperty Name="TICKET" Relationship="Modelo.FK_ASS_10" FromRole="CLIENTE_TICKET" ToRole="TICKET" />
+        </EntityType>
+        <Association Name="FK_ASS_9">
+          <End Type="Modelo.CLIENTE" Role="CLIENTE" Multiplicity="1" />
+          <End Type="Modelo.CLIENTE_TICKET" Role="CLIENTE_TICKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="CLIENTE_TICKET">
+              <PropertyRef Name="CLIENTE_RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASS_10">
+          <End Type="Modelo.TICKET" Role="TICKET" Multiplicity="1" />
+          <End Type="Modelo.CLIENTE_TICKET" Role="CLIENTE_TICKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TICKET">
+              <PropertyRef Name="ID_TICKET" />
+            </Principal>
+            <Dependent Role="CLIENTE_TICKET">
+              <PropertyRef Name="TICKET_ID_TICKET" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ASIENTO">
+          <Key>
+            <PropertyRef Name="ID_ASIENTO" />
+          </Key>
+          <Property Type="Decimal" Name="ID_ASIENTO" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="NUMERO" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Decimal" Name="ID_EVENTO" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="ID_TIPO_ASIENTO" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="EVENTO" Relationship="Modelo.ASIENTO_EVENTO_FK" FromRole="ASIENTO" ToRole="EVENTO" />
+          <NavigationProperty Name="TICKET" Relationship="Modelo.TICKET_ASIENTO_FK" FromRole="ASIENTO" ToRole="TICKET" />
+        </EntityType>
+        <Association Name="ASIENTO_EVENTO_FK">
+          <End Type="Modelo.EVENTO" Role="EVENTO" Multiplicity="1" />
+          <End Type="Modelo.ASIENTO" Role="ASIENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EVENTO">
+              <PropertyRef Name="ID_EVENTO" />
+            </Principal>
+            <Dependent Role="ASIENTO">
+              <PropertyRef Name="ID_EVENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TICKET_ASIENTO_FK">
+          <End Type="Modelo.ASIENTO" Role="ASIENTO" Multiplicity="1" />
+          <End Type="Modelo.TICKET" Role="TICKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ASIENTO">
+              <PropertyRef Name="ID_ASIENTO" />
+            </Principal>
+            <Dependent Role="TICKET">
+              <PropertyRef Name="ID_ASIENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModeloStoreContainer" CdmEntityContainer="Entidades">
+          <EntitySetMapping Name="BOLETA">
+            <EntityTypeMapping TypeName="Modelo.BOLETA">
+              <MappingFragment StoreEntitySet="BOLETA">
+                <ScalarProperty Name="VENTA_ID_VENTA" ColumnName="VENTA_ID_VENTA" />
+                <ScalarProperty Name="BOLETA_ID_BOLETA" ColumnName="BOLETA_ID_BOLETA" />
+                <ScalarProperty Name="BOLETA_PAGO" ColumnName="BOLETA_PAGO" />
+                <ScalarProperty Name="BOLETACANTIDADENTRADASVENDIDAS" ColumnName="BOLETACANTIDADENTRADASVENDIDAS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLIENTE">
+            <EntityTypeMapping TypeName="Modelo.CLIENTE">
+              <MappingFragment StoreEntitySet="CLIENTE">
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="RUT" ColumnName="RUT" />
+                <ScalarProperty Name="DV" ColumnName="DV" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+                <ScalarProperty Name="CELULAR" ColumnName="CELULAR" />
+                <ScalarProperty Name="ID_COMUNA" ColumnName="ID_COMUNA" />
+                <ScalarProperty Name="ID_PERFIL" ColumnName="ID_PERFIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="Modelo.CLIENTE">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="Modelo.Store.CLIENTE_TAPI_INS" >
+                <ScalarProperty Name="DV" ParameterName="P_DV" />
+                  <ScalarProperty Name="CELULAR" ParameterName="P_CELULAR" />
+                  <ScalarProperty Name="RUT" ParameterName="P_RUT" />
+                  <ScalarProperty Name="CORREO" ParameterName="P_CORREO" />
+                  <ScalarProperty Name="NOMBRE" ParameterName="P_NOMBRE" />
+                  <ScalarProperty Name="APELLIDO" ParameterName="P_APELLIDO" />
+                  <ScalarProperty Name="DIRECCION" ParameterName="P_DIRECCION" />
+                  <ScalarProperty Name="ID_PERFIL" ParameterName="P_ID_PERFIL" />
+                  <ScalarProperty Name="ID_COMUNA" ParameterName="P_ID_COMUNA" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="Modelo.Store.CLIENTE_TAPI_UPD" >
+                  <ScalarProperty Name="ESTADO" ParameterName="P_ESTADO" Version="Current" />
+                  <ScalarProperty Name="DV" ParameterName="P_DV" Version="Current" />
+                  <ScalarProperty Name="CELULAR" ParameterName="P_CELULAR" Version="Current" />
+                  <ScalarProperty Name="RUT" ParameterName="P_RUT" Version="Current" />
+                  <ScalarProperty Name="CORREO" ParameterName="P_CORREO" Version="Current" />
+                  <ScalarProperty Name="NOMBRE" ParameterName="P_NOMBRE" Version="Current" />
+                  <ScalarProperty Name="APELLIDO" ParameterName="P_APELLIDO" Version="Current" />
+                  <ScalarProperty Name="DIRECCION" ParameterName="P_DIRECCION" Version="Current" />
+                  <ScalarProperty Name="ID_PERFIL" ParameterName="P_ID_PERFIL" Version="Current" />
+                  <ScalarProperty Name="ID_COMUNA" ParameterName="P_ID_COMUNA" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="Modelo.Store.CLIENTE_TAPI_DEL" >
+                  <ScalarProperty Name="RUT" ParameterName="P_RUT" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMUNA">
+            <EntityTypeMapping TypeName="Modelo.COMUNA">
+              <MappingFragment StoreEntitySet="COMUNA">
+                <ScalarProperty Name="ID_COMUNA" ColumnName="ID_COMUNA" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ID_REGION" ColumnName="ID_REGION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONTRATO">
+            <EntityTypeMapping TypeName="Modelo.CONTRATO">
+              <MappingFragment StoreEntitySet="CONTRATO">
+                <ScalarProperty Name="ID_FOLIO" ColumnName="ID_FOLIO" />
+                <ScalarProperty Name="RUT" ColumnName="RUT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EVENTO">
+            <EntityTypeMapping TypeName="Modelo.EVENTO">
+              <MappingFragment StoreEntitySet="EVENTO">
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="IMAGEN" ColumnName="IMAGEN" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ID_EVENTO" ColumnName="ID_EVENTO" />
+                <ScalarProperty Name="ASIENTOS_DISPONIBLES" ColumnName="ASIENTOS_DISPONIBLES" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="ID_TIPO_EVENTO" ColumnName="ID_TIPO_EVENTO" />
+                <ScalarProperty Name="ID_RECINTO" ColumnName="ID_RECINTO" />
+                <ScalarProperty Name="RUT" ColumnName="RUT" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="Modelo.EVENTO">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="Modelo.Store.EVENTO_TAPI_INS" >
+                  <ScalarProperty Name="IMAGEN" ParameterName="P_IMAGEN" />
+                  <ScalarProperty Name="RUT" ParameterName="P_RUT" />
+                  <ScalarProperty Name="NOMBRE" ParameterName="P_NOMBRE" />
+                  <ScalarProperty Name="ID_TIPO_EVENTO" ParameterName="P_ID_TIPO_EVENTO" />
+                  <ScalarProperty Name="DESCRIPCION" ParameterName="P_DESCRIPCION" />
+                  <ScalarProperty Name="ESTADO" ParameterName="P_ESTADO" />
+                  <ScalarProperty Name="ASIENTOS_DISPONIBLES" ParameterName="P_ASIENTOS_DISPONIBLES" />
+                  <ScalarProperty Name="ID_RECINTO" ParameterName="P_ID_RECINTO" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="Modelo.Store.EVENTO_TAPI_UPD" >
+                  <ScalarProperty Name="IMAGEN" ParameterName="P_IMAGEN" Version="Current" />
+                  <ScalarProperty Name="RUT" ParameterName="P_RUT" Version="Current" />
+                  <ScalarProperty Name="NOMBRE" ParameterName="P_NOMBRE" Version="Current" />
+                  <ScalarProperty Name="ID_TIPO_EVENTO" ParameterName="P_ID_TIPO_EVENTO" Version="Current" />
+                  <ScalarProperty Name="ID_EVENTO" ParameterName="P_ID_EVENTO" Version="Current" />
+                  <ScalarProperty Name="DESCRIPCION" ParameterName="P_DESCRIPCION" Version="Current" />
+                  <ScalarProperty Name="ESTADO" ParameterName="P_ESTADO" Version="Current" />
+                  <ScalarProperty Name="ASIENTOS_DISPONIBLES" ParameterName="P_ASIENTOS_DISPONIBLES" Version="Current" />
+                  <ScalarProperty Name="ID_RECINTO" ParameterName="P_ID_RECINTO" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="Modelo.Store.EVENTO_TAPI_DEL" >
+                  <ScalarProperty Name="ID_EVENTO" ParameterName="P_ID_EVENTO" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INTERES">
+            <EntityTypeMapping TypeName="Modelo.INTERES">
+              <MappingFragment StoreEntitySet="INTERES">
+                <ScalarProperty Name="ID_INTERES" ColumnName="ID_INTERES" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MENU">
+            <EntityTypeMapping TypeName="Modelo.MENU">
+              <MappingFragment StoreEntitySet="MENU">
+                <ScalarProperty Name="ID_MENU" ColumnName="ID_MENU" />
+                <ScalarProperty Name="CAMPO" ColumnName="CAMPO" />
+                <ScalarProperty Name="URL_INTERNA" ColumnName="URL_INTERNA" />
+                <ScalarProperty Name="ID_TIPO_PERFIL" ColumnName="ID_TIPO_PERFIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORGANIZADOR">
+            <EntityTypeMapping TypeName="Modelo.ORGANIZADOR">
+              <MappingFragment StoreEntitySet="ORGANIZADOR">
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="RUT" ColumnName="RUT" />
+                <ScalarProperty Name="DV" ColumnName="DV" />
+                <ScalarProperty Name="NOMBRE_RAZON_SOCIAL" ColumnName="NOMBRE_RAZON_SOCIAL" />
+                <ScalarProperty Name="GIRO" ColumnName="GIRO" />
+                <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="VALIDO" ColumnName="VALIDO" />
+                <ScalarProperty Name="ID_FOLIO" ColumnName="ID_FOLIO" />
+                <ScalarProperty Name="ID_COMUNA" ColumnName="ID_COMUNA" />
+                <ScalarProperty Name="ID_PERFIL" ColumnName="ID_PERFIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="Modelo.ORGANIZADOR">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="Modelo.Store.ORGANIZADOR_TAPI_INS" >
+                  <ScalarProperty Name="ID_COMUNA" ParameterName="P_ID_COMUNA" />
+                  <ScalarProperty Name="DV" ParameterName="P_DV" />
+                  <ScalarProperty Name="NOMBRE_RAZON_SOCIAL" ParameterName="P_NOMBRE_RAZON_SOCIAL" />
+                  <ScalarProperty Name="VALIDO" ParameterName="P_VALIDO" />
+                  <ScalarProperty Name="RUT" ParameterName="P_RUT" />
+                  <ScalarProperty Name="CORREO" ParameterName="P_CORREO" />
+                  <ScalarProperty Name="GIRO" ParameterName="P_GIRO" />
+                  <ScalarProperty Name="DIRECCION" ParameterName="P_DIRECCION" />
+                  <ScalarProperty Name="ID_PERFIL" ParameterName="P_ID_PERFIL" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="Modelo.Store.ORGANIZADOR_TAPI_UPD" >
+                  <ScalarProperty Name="ESTADO" ParameterName="P_ESTADO" Version="Current" />
+                  <ScalarProperty Name="DV" ParameterName="P_DV" Version="Current" />
+                  <ScalarProperty Name="NOMBRE_RAZON_SOCIAL" ParameterName="P_NOMBRE_RAZON_SOCIAL" Version="Current" />
+                  <ScalarProperty Name="VALIDO" ParameterName="P_VALIDO" Version="Current" />
+                  <ScalarProperty Name="RUT" ParameterName="P_RUT" Version="Current" />
+                  <ScalarProperty Name="CORREO" ParameterName="P_CORREO" Version="Current" />
+                  <ScalarProperty Name="ID_FOLIO" ParameterName="P_ID_FOLIO" Version="Current" />
+                  <ScalarProperty Name="GIRO" ParameterName="P_GIRO" Version="Current" />
+                  <ScalarProperty Name="DIRECCION" ParameterName="P_DIRECCION" Version="Current" />
+                  <ScalarProperty Name="ID_PERFIL" ParameterName="P_ID_PERFIL" Version="Current" />
+                  <ScalarProperty Name="ID_COMUNA" ParameterName="P_ID_COMUNA" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="Modelo.Store.ORGANIZADOR_TAPI_DEL" >
+                  <ScalarProperty Name="RUT" ParameterName="P_RUT" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERFIL">
+            <EntityTypeMapping TypeName="Modelo.PERFIL">
+              <MappingFragment StoreEntitySet="PERFIL">
+                <ScalarProperty Name="ID_PERFIL" ColumnName="ID_PERFIL" />
+                <ScalarProperty Name="USUARIO" ColumnName="USUARIO" />
+                <ScalarProperty Name="CONTRASENA" ColumnName="CONTRASENA" />
+                <ScalarProperty Name="ID_TIPO_PERFIL" ColumnName="ID_TIPO_PERFIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="Modelo.PERFIL">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="Modelo.Store.PERFIL_TAPI_INS" >
+                  <ScalarProperty Name="ID_TIPO_PERFIL" ParameterName="P_ID_TIPO_PERFIL" />
+                  <ScalarProperty Name="CONTRASENA" ParameterName="P_CONTRASENA" />
+                  <ScalarProperty Name="USUARIO" ParameterName="P_USUARIO" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="Modelo.Store.PERFIL_TAPI_UPD" >
+                  <ScalarProperty Name="ID_TIPO_PERFIL" ParameterName="P_ID_TIPO_PERFIL" Version="Current" />
+                  <ScalarProperty Name="CONTRASENA" ParameterName="P_CONTRASENA" Version="Current" />
+                  <ScalarProperty Name="USUARIO" ParameterName="P_USUARIO" Version="Current" />
+                  <ScalarProperty Name="ID_PERFIL" ParameterName="P_ID_PERFIL" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="Modelo.Store.PERFIL_TAPI_DEL" >
+                  <ScalarProperty Name="ID_PERFIL" ParameterName="P_ID_PERFIL" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERMISOS">
+            <EntityTypeMapping TypeName="Modelo.PERMISOS">
+              <MappingFragment StoreEntitySet="PERMISOS">
+                <ScalarProperty Name="RUT" ColumnName="RUT" />
+                <ScalarProperty Name="ID_TIPO_EVENTO" ColumnName="ID_TIPO_EVENTO" />
+                <ScalarProperty Name="ID_RECINTO" ColumnName="ID_RECINTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RECINTO">
+            <EntityTypeMapping TypeName="Modelo.RECINTO">
+              <MappingFragment StoreEntitySet="RECINTO">
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="ID_RECINTO" ColumnName="ID_RECINTO" />
+                <ScalarProperty Name="NOMBRE_RECINTO" ColumnName="NOMBRE_RECINTO" />
+                <ScalarProperty Name="DIRECCION_RECINTO" ColumnName="DIRECCION_RECINTO" />
+                <ScalarProperty Name="IMAGEN_RECINTO" ColumnName="IMAGEN_RECINTO" />
+                <ScalarProperty Name="ID_COMUNA" ColumnName="ID_COMUNA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="Modelo.RECINTO">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="Modelo.Store.RECINTO_TAPI_INS" >
+                  <ScalarProperty Name="DIRECCION_RECINTO" ParameterName="P_DIRECCION_RECINTO" />
+                  <ScalarProperty Name="IMAGEN_RECINTO" ParameterName="P_IMAGEN_RECINTO" />
+                  <ScalarProperty Name="NOMBRE_RECINTO" ParameterName="P_NOMBRE_RECINTO" />
+                  <ScalarProperty Name="ID_RECINTO" ParameterName="P_ID_RECINTO" />
+                  <ScalarProperty Name="ID_COMUNA" ParameterName="P_ID_COMUNA" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="Modelo.Store.RECINTO_TAPI_UPD" >
+                  <ScalarProperty Name="ESTADO" ParameterName="P_ESTADO" Version="Current" />
+                  <ScalarProperty Name="DIRECCION_RECINTO" ParameterName="P_DIRECCION_RECINTO" Version="Current" />
+                  <ScalarProperty Name="IMAGEN_RECINTO" ParameterName="P_IMAGEN_RECINTO" Version="Current" />
+                  <ScalarProperty Name="NOMBRE_RECINTO" ParameterName="P_NOMBRE_RECINTO" Version="Current" />
+                  <ScalarProperty Name="ID_RECINTO" ParameterName="P_ID_RECINTO" Version="Current" />
+                  <ScalarProperty Name="ID_COMUNA" ParameterName="P_ID_COMUNA" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="Modelo.Store.RECINTO_TAPI_DEL" >
+                  <ScalarProperty Name="ID_RECINTO" ParameterName="P_ID_RECINTO" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REGION">
+            <EntityTypeMapping TypeName="Modelo.REGION">
+              <MappingFragment StoreEntitySet="REGION">
+                <ScalarProperty Name="ID_REGION" ColumnName="ID_REGION" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_EVENTO">
+            <EntityTypeMapping TypeName="Modelo.TIPO_EVENTO">
+              <MappingFragment StoreEntitySet="TIPO_EVENTO">
+                <ScalarProperty Name="ID_TIPO_EVENTO" ColumnName="ID_TIPO_EVENTO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="Modelo.TIPO_EVENTO">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="Modelo.Store.TIPO_EVENTO_TAPI_INS" >
+                  <ScalarProperty Name="ID_TIPO_EVENTO" ParameterName="P_ID_TIPO_EVENTO" />
+                  <ScalarProperty Name="DESCRIPCION" ParameterName="P_DESCRIPCION" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="Modelo.Store.TIPO_EVENTO_TAPI_UPD" >
+                  <ScalarProperty Name="ID_TIPO_EVENTO" ParameterName="P_ID_TIPO_EVENTO" Version="Current" />
+                  <ScalarProperty Name="DESCRIPCION" ParameterName="P_DESCRIPCION" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="Modelo.Store.TIPO_EVENTO_TAPI_DEL" >
+                  <ScalarProperty Name="ID_TIPO_EVENTO" ParameterName="P_ID_TIPO_EVENTO" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_PERFIL">
+            <EntityTypeMapping TypeName="Modelo.TIPO_PERFIL">
+              <MappingFragment StoreEntitySet="TIPO_PERFIL">
+                <ScalarProperty Name="ID_TIPO_PERFIL" ColumnName="ID_TIPO_PERFIL" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VENTA">
+            <EntityTypeMapping TypeName="Modelo.VENTA">
+              <MappingFragment StoreEntitySet="VENTA">
+                <ScalarProperty Name="VENTA_ID_VENTA" ColumnName="VENTA_ID_VENTA" />
+                <ScalarProperty Name="VENTA_ESTADO" ColumnName="VENTA_ESTADO" />
+                <ScalarProperty Name="VENTA_RUT" ColumnName="VENTA_RUT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLIENTE_INTERES">
+            <EntityTypeMapping TypeName="Modelo.CLIENTE_INTERES">
+              <MappingFragment StoreEntitySet="CLIENTE_INTERES">
+                <ScalarProperty Name="ID_CLIENTE_INTERES" ColumnName="ID_CLIENTE_INTERES" />
+                <ScalarProperty Name="INTERES_ID_INTERES" ColumnName="INTERES_ID_INTERES" />
+                <ScalarProperty Name="CLIENTE_RUT" ColumnName="CLIENTE_RUT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="Modelo.CLIENTE_INTERES">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="Modelo.Store.CLIENTE_INTERES_TAPI_INS" >
+                  <ScalarProperty Name="CLIENTE_RUT" ParameterName="P_CLIENTE_RUT" />
+                  <ScalarProperty Name="INTERES_ID_INTERES" ParameterName="P_INTERES_ID_INTERES" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="Modelo.Store.CLIENTE_INTERES_TAPI_UPD" >
+                  <ScalarProperty Name="ID_CLIENTE_INTERES" ParameterName="P_ID_CLIENTE_INTERES" Version="Current" />
+                  <ScalarProperty Name="CLIENTE_RUT" ParameterName="P_CLIENTE_RUT" Version="Current" />
+                  <ScalarProperty Name="INTERES_ID_INTERES" ParameterName="P_INTERES_ID_INTERES" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="Modelo.Store.CLIENTE_INTERES_TAPI_DEL" >
+                  <ScalarProperty Name="CLIENTE_RUT" ParameterName="P_CLIENTE_RUT" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_ASIENTO">
+            <EntityTypeMapping TypeName="Modelo.TIPO_ASIENTO">
+              <MappingFragment StoreEntitySet="TIPO_ASIENTO">
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ID_TIPO_ASIENTO" ColumnName="ID_TIPO_ASIENTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TICKET">
+            <EntityTypeMapping TypeName="Modelo.TICKET">
+              <MappingFragment StoreEntitySet="TICKET">
+                <ScalarProperty Name="ID_ASIENTO" ColumnName="ID_ASIENTO" />
+                <ScalarProperty Name="ID_TIPO_TICKET" ColumnName="ID_TIPO_TICKET" />
+                <ScalarProperty Name="ID_EVENTO" ColumnName="ID_EVENTO" />
+                <ScalarProperty Name="ID_TICKET" ColumnName="ID_TICKET" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="Modelo.TICKET">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="Modelo.Store.TICKET_TAPI_INS" >
+                  <ScalarProperty Name="ID_EVENTO" ParameterName="P_ID_EVENTO" />
+                  <ScalarProperty Name="ID_ASIENTO" ParameterName="P_ID_ASIENTO" />
+                  <ScalarProperty Name="ID_TIPO_TICKET" ParameterName="P_ID_TIPO_TICKET" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="Modelo.Store.TICKET_TAPI_UPD" >
+                  <ScalarProperty Name="ID_EVENTO" ParameterName="P_ID_EVENTO" Version="Current" />
+                  <ScalarProperty Name="ID_ASIENTO" ParameterName="P_ID_ASIENTO" Version="Current" />
+                  <ScalarProperty Name="ID_TICKET" ParameterName="P_ID_TICKET" Version="Current" />
+                  <ScalarProperty Name="ID_TIPO_TICKET" ParameterName="P_ID_TIPO_TICKET" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="Modelo.Store.TICKET_TAPI_DEL" >
+                  <ScalarProperty Name="ID_TICKET" ParameterName="P_ID_TICKET" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_TICKET">
+            <EntityTypeMapping TypeName="Modelo.TIPO_TICKET">
+              <MappingFragment StoreEntitySet="TIPO_TICKET">
+                <ScalarProperty Name="ID_TIPO_ASIENTO" ColumnName="ID_TIPO_ASIENTO" />
+                <ScalarProperty Name="ID_EVENTO" ColumnName="ID_EVENTO" />
+                <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+                <ScalarProperty Name="ID_TIPO_TICKET" ColumnName="ID_TIPO_TICKET" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="Modelo.TIPO_TICKET">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="Modelo.Store.TIPO_TICKET_TAPI_INS" >
+                  <ScalarProperty Name="ID_EVENTO" ParameterName="P_ID_EVENTO" />
+                  <ScalarProperty Name="ID_TIPO_ASIENTO" ParameterName="P_ID_TIPO_ASIENTO" />
+                  <ScalarProperty Name="PRECIO" ParameterName="P_PRECIO" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="Modelo.Store.TIPO_TICKET_TAPI_UPD" >
+                  <ScalarProperty Name="ID_TIPO_TICKET" ParameterName="P_ID_TIPO_TICKET" Version="Current" />
+                  <ScalarProperty Name="ID_EVENTO" ParameterName="P_ID_EVENTO" Version="Current" />
+                  <ScalarProperty Name="ID_TIPO_ASIENTO" ParameterName="P_ID_TIPO_ASIENTO" Version="Current" />
+                  <ScalarProperty Name="PRECIO" ParameterName="P_PRECIO" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="Modelo.Store.TIPO_TICKET_TAPI_DEL" >
+                  <ScalarProperty Name="ID_TIPO_TICKET" ParameterName="P_ID_TIPO_TICKET" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLIENTE_TICKET">
+            <EntityTypeMapping TypeName="Modelo.CLIENTE_TICKET">
+              <MappingFragment StoreEntitySet="CLIENTE_TICKET">
+                <ScalarProperty Name="HABILITADO" ColumnName="HABILITADO" />
+                <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+                <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+                <ScalarProperty Name="REGALO" ColumnName="REGALO" />
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="TICKET_ID_TICKET" ColumnName="TICKET_ID_TICKET" />
+                <ScalarProperty Name="CLIENTE_RUT" ColumnName="CLIENTE_RUT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="Modelo.CLIENTE_TICKET">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="Modelo.Store.CLIENTE_TICKET_TAPI_INS" >
+                  <ScalarProperty Name="CORREO" ParameterName="P_CORREO" />
+                  <ScalarProperty Name="REGALO" ParameterName="P_REGALO" />
+                  <ScalarProperty Name="TOTAL" ParameterName="P_TOTAL" />
+                  <ScalarProperty Name="CANTIDAD" ParameterName="P_CANTIDAD" />
+                  <ScalarProperty Name="TICKET_ID_TICKET" ParameterName="P_TICKET_ID_TICKET" />
+                  <ScalarProperty Name="CLIENTE_RUT" ParameterName="P_CLIENTE_RUT" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="Modelo.Store.CLIENTE_TICKET_TAPI_UPD" >
+                  <ScalarProperty Name="CORREO" ParameterName="P_CORREO" Version="Current" />
+                  <ScalarProperty Name="REGALO" ParameterName="P_REGALO" Version="Current" />
+                  <ScalarProperty Name="TOTAL" ParameterName="P_TOTAL" Version="Current" />
+                  <ScalarProperty Name="CANTIDAD" ParameterName="P_CANTIDAD" Version="Current" />
+                  <ScalarProperty Name="TICKET_ID_TICKET" ParameterName="P_TICKET_ID_TICKET" Version="Current" />
+                  <ScalarProperty Name="CLIENTE_RUT" ParameterName="P_CLIENTE_RUT" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="Modelo.Store.CLIENTE_TICKET_TAPI_DEL" >
+                  <ScalarProperty Name="TICKET_ID_TICKET" ParameterName="P_TICKET_ID_TICKET" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ASIENTO">
+            <EntityTypeMapping TypeName="Modelo.ASIENTO">
+              <MappingFragment StoreEntitySet="ASIENTO">
+                <ScalarProperty Name="ID_TIPO_ASIENTO" ColumnName="ID_TIPO_ASIENTO" />
+                <ScalarProperty Name="ID_EVENTO" ColumnName="ID_EVENTO" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
+                <ScalarProperty Name="ID_ASIENTO" ColumnName="ID_ASIENTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="Modelo.ASIENTO">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="Modelo.Store.ASIENTO_TAPI_INS" >
+                  <ScalarProperty Name="ID_TIPO_ASIENTO" ParameterName="P_ID_TIPO_ASIENTO" />
+                  <ScalarProperty Name="NUMERO" ParameterName="P_NUMERO" />
+                  <ScalarProperty Name="ESTADO" ParameterName="P_ESTADO" />
+                  <ScalarProperty Name="ID_EVENTO" ParameterName="P_ID_EVENTO" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="Modelo.Store.ASIENTO_TAPI_UPD" >
+                  <ScalarProperty Name="ID_TIPO_ASIENTO" ParameterName="P_ID_TIPO_ASIENTO" Version="Current" />
+                  <ScalarProperty Name="NUMERO" ParameterName="P_NUMERO" Version="Current" />
+                  <ScalarProperty Name="ID_ASIENTO" ParameterName="P_ID_ASIENTO" Version="Current" />
+                  <ScalarProperty Name="ESTADO" ParameterName="P_ESTADO" Version="Current" />
+                  <ScalarProperty Name="ID_EVENTO" ParameterName="P_ID_EVENTO" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="Modelo.Store.ASIENTO_TAPI_DEL" >
+                  <ScalarProperty Name="ID_ASIENTO" ParameterName="P_ID_ASIENTO" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="BD_ETicket" ZoomLevel="59">
+        <EntityTypeShape EntityType="Modelo.BOLETA" Width="1.5" PointX="12.75" PointY="20.125" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.CLIENTE" Width="1.5" PointX="5.375" PointY="11.25" Height="3.5186979166666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.COMUNA" Width="1.5" PointX="3" PointY="15.875" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.CONTRATO" Width="1.5" PointX="10.5" PointY="10.75" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.EVENTO" Width="1.5" PointX="13.5" PointY="11.5" Height="3.1340950520833317" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.INTERES" Width="1.5" PointX="7.5" PointY="16.5" Height="1.595683593749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.MENU" Width="1.5" PointX="3" PointY="9.125" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.ORGANIZADOR" Width="1.5" PointX="8.25" PointY="10.875" Height="4.2879036458333353" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.PERFIL" Width="1.5" PointX="3" PointY="11.875" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.PERMISOS" Width="1.5" PointX="13.5" PointY="8" Height="2.1725878906250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.RECINTO" Width="1.5" PointX="11.25" PointY="4.125" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.REGION" Width="1.5" PointX="0.75" PointY="16.25" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.TIPO_EVENTO" Width="1.5" PointX="11.25" PointY="8.125" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.TIPO_PERFIL" Width="1.5" PointX="0.75" PointY="10.75" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.VENTA" Width="1.5" PointX="10.5" PointY="20.125" Height="1.9802864583333388" IsExpanded="true" />
+        <AssociationConnector Association="Modelo.FK_ASS_1" ManuallyRouted="false">
+          <ConnectorPoint PointX="12" PointY="21.115143229166666" />
+          <ConnectorPoint PointX="12.75" PointY="21.115143229166666" />
+        </AssociationConnector>
+        <AssociationConnector Association="Modelo.CLIENTE_COMUNA_FK" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="17.220846005859375" />
+          <ConnectorPoint PointX="5.8753060448807481" PointY="17.220846005859375" />
+          <ConnectorPoint PointX="5.8753060448807481" PointY="14.960999348958332" />
+        </AssociationConnector>
+        <AssociationConnector Association="Modelo.CLIENTE_PERFIL_FK" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="13.057444661458334" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="13.057444661458334" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="13.057444661458334" />
+          <ConnectorPoint PointX="5.375" PointY="13.057444661458334" />
+        </AssociationConnector>
+        <AssociationConnector Association="Modelo.COMUNA_REGION_FK" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="17.047841796875" />
+          <ConnectorPoint PointX="3" PointY="17.047841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="Modelo.ORGANIZADOR_COMUNA_FK" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="16.125" />
+          <ConnectorPoint PointX="5.9168194391070417" PointY="16.125" />
+          <ConnectorPoint PointX="6.0834861057737077" PointY="16.125" />
+          <ConnectorPoint PointX="6.3854950528868537" PointY="16.125" />
+          <ConnectorPoint PointX="6.55216171955352" PointY="16.125" />
+          <ConnectorPoint PointX="9.2710859912109385" PointY="16.125" />
+          <ConnectorPoint PointX="9.2710859912109385" PointY="15.355205078125001" />
+        </AssociationConnector>
+        <AssociationConnector Association="Modelo.RECINTO_COMUNA_FK" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="15.876152846153847" />
+          <ConnectorPoint PointX="4.875" PointY="15.501152846153847" />
+          <ConnectorPoint PointX="4.875" PointY="5.5958968098958337" />
+          <ConnectorPoint PointX="11.25" PointY="5.5958968098958337" />
+        </AssociationConnector>
+        <AssociationConnector Association="Modelo.CONTRATO_ORGANIZADOR_FK" ManuallyRouted="false">
+          <ConnectorPoint PointX="9.75" PointY="11.706492513020834" />
+          <ConnectorPoint PointX="10.5" PointY="11.706492513020834" />
+        </AssociationConnector>
+        <AssociationConnector Association="Modelo.ORGANIZADOR_CONTRATO_FK" ManuallyRouted="false">
+          <ConnectorPoint PointX="10.5" PointY="11.228246256510417" />
+          <ConnectorPoint PointX="9.75" PointY="11.228246256510417" />
+        </AssociationConnector>
+        <AssociationConnector Association="Modelo.EVENTO_ORGANIZADOR_FK" ManuallyRouted="false">
+          <ConnectorPoint PointX="9.75" PointY="13.425051725254694" />
+          <ConnectorPoint PointX="13.041666666666666" PointY="13.425051725254694" />
+          <ConnectorPoint PointX="13.208333333333334" PointY="13.425051725254694" />
+          <ConnectorPoint PointX="13.229166666666666" PointY="13.425051725254694" />
+          <ConnectorPoint PointX="13.395833333333334" PointY="13.425051725254694" />
+          <ConnectorPoint PointX="13.5" PointY="13.425051725254694" />
+        </AssociationConnector>
+        <AssociationConnector Association="Modelo.EVENTO_RECINTO_FK" ManuallyRouted="false">
+          <ConnectorPoint PointX="12.75" PointY="6.8733373413461534" />
+          <ConnectorPoint PointX="13.125" PointY="7.2483373413461534" />
+          <ConnectorPoint PointX="13.125" PointY="14.445428253252349" />
+          <ConnectorPoint PointX="13.229166666666666" PointY="14.445428253252349" />
+          <ConnectorPoint PointX="13.395833333333334" PointY="14.445428253252349" />
+          <ConnectorPoint PointX="13.5" PointY="14.445428253252349" />
+        </AssociationConnector>
+        <AssociationConnector Association="Modelo.EVENTO_TIPO_EVENTO_FK" ManuallyRouted="false">
+          <ConnectorPoint PointX="12.75" PointY="9.8506763337339773" />
+          <ConnectorPoint PointX="13.066074434901122" PointY="10.166750768635097" />
+          <ConnectorPoint PointX="13.183925565098878" PointY="10.284601898832856" />
+          <ConnectorPoint PointX="13.1875" PointY="10.288176333733977" />
+          <ConnectorPoint PointX="13.1875" PointY="12.431273862627347" />
+          <ConnectorPoint PointX="13.229166666666666" PointY="12.431273862627347" />
+          <ConnectorPoint PointX="13.395833333333334" PointY="12.431273862627347" />
+          <ConnectorPoint PointX="13.5" PointY="12.431273862627347" />
+        </AssociationConnector>
+        <AssociationConnector Association="Modelo.MENU_TIPO_PERFIL_FK" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="10.927643229166666" />
+          <ConnectorPoint PointX="3" PointY="10.927643229166666" />
+        </AssociationConnector>
+        <AssociationConnector Association="Modelo.ORGANIZADOR_PERFIL_FK" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.75" PointY="14.239889322916666" />
+          <ConnectorPoint PointX="3.75" PointY="15.242684833708008" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="15.242684833708008" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="15.242684833708008" />
+          <ConnectorPoint PointX="5.5729905528868544" PointY="15.242684833708008" />
+          <ConnectorPoint PointX="5.7396572195535205" PointY="15.242684833708008" />
+          <ConnectorPoint PointX="5.9168194391070417" PointY="15.242684833708008" />
+          <ConnectorPoint PointX="6.0834861057737077" PointY="15.242684833708008" />
+          <ConnectorPoint PointX="6.3854950528868537" PointY="15.242684833708008" />
+          <ConnectorPoint PointX="6.55216171955352" PointY="15.242684833708008" />
+          <ConnectorPoint PointX="8.25" PointY="15.242684833708008" />
+        </AssociationConnector>
+        <AssociationConnector Association="Modelo.PERMISOS_ORGANIZADOR_FK" ManuallyRouted="false">
+          <ConnectorPoint PointX="9" PointY="10.875" />
+          <ConnectorPoint PointX="9" PointY="10.074036458333335" />
+          <ConnectorPoint PointX="12.890026791266024" PointY="10.074036458333334" />
+          <ConnectorPoint PointX="13.208333333333336" PointY="10.074036458333335" />
+          <ConnectorPoint PointX="13.5" PointY="10.074036458333335" />
+        </AssociationConnector>
+        <AssociationConnector Association="Modelo.VENTA_ORGANIZADOR_FK" ManuallyRouted="false">
+          <ConnectorPoint PointX="9.54179549560547" PointY="15.355205078125001" />
+          <ConnectorPoint PointX="9.54179549560547" PointY="21.115143229166669" />
+          <ConnectorPoint PointX="10.5" PointY="21.115143229166669" />
+        </AssociationConnector>
+        <AssociationConnector Association="Modelo.PERFIL_TIPO_PERFIL_FK" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="12.206492513020834" />
+          <ConnectorPoint PointX="3" PointY="12.206492513020834" />
+        </AssociationConnector>
+        <AssociationConnector Association="Modelo.PERMISOS_RECINTO_FK" ManuallyRouted="false">
+          <ConnectorPoint PointX="12.75" PointY="7.0287156967147437" />
+          <ConnectorPoint PointX="13.21875" PointY="7.4974656967147437" />
+          <ConnectorPoint PointX="13.21875" PointY="9.0057662291666674" />
+          <ConnectorPoint PointX="13.5" PointY="9.0057662291666674" />
+        </AssociationConnector>
+        <AssociationConnector Association="Modelo.PERMISOS_TIPO_EVENTO_FK" ManuallyRouted="false">
+          <ConnectorPoint PointX="12.75" PointY="9.5218756276041674" />
+          <ConnectorPoint PointX="13.041666666666666" PointY="9.5218756276041674" />
+          <ConnectorPoint PointX="13.208333333333334" PointY="9.5218756276041674" />
+          <ConnectorPoint PointX="13.5" PointY="9.5218756276041674" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Modelo.CLIENTE_INTERES" Width="1.5" PointX="16.125" PointY="17.375" Height="1.9802864583333388" />
+        <AssociationConnector Association="Modelo.FK_ASS_17" >
+          <ConnectorPoint PointX="6.4688283862201867" PointY="14.960999348958332" />
+          <ConnectorPoint PointX="6.4688283862201867" PointY="19.730286458333339" />
+          <ConnectorPoint PointX="8.1666666666666661" PointY="19.730286458333339" />
+          <ConnectorPoint PointX="8.3333333333333339" PointY="19.730286458333339" />
+          <ConnectorPoint PointX="9.4584621622721361" PointY="19.730286458333339" />
+          <ConnectorPoint PointX="9.6251288289388039" PointY="19.730286458333339" />
+          <ConnectorPoint PointX="16.385414666666666" PointY="19.730286458333339" />
+          <ConnectorPoint PointX="16.55208133333333" PointY="19.730286458333339" />
+          <ConnectorPoint PointX="16.875" PointY="19.730286458333339" />
+          <ConnectorPoint PointX="16.875" PointY="19.355286458333339" />
+        </AssociationConnector>
+        <AssociationConnector Association="Modelo.FK_ASS_18" >
+          <ConnectorPoint PointX="8.25" PointY="18.095683593749996" />
+          <ConnectorPoint PointX="8.25" PointY="19.855286458333339" />
+          <ConnectorPoint PointX="9.4584621622721361" PointY="19.855286458333339" />
+          <ConnectorPoint PointX="9.6251288289388039" PointY="19.855286458333339" />
+          <ConnectorPoint PointX="16.468747999999998" PointY="19.855286458333339" />
+          <ConnectorPoint PointX="16.468747999999998" PointY="19.355286458333339" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Modelo.TIPO_ASIENTO" Width="1.5" PointX="17.25" PointY="8.75" Height="1.4033821614583388" />
+        <EntityTypeShape EntityType="Modelo.TICKET" Width="1.5" PointX="15.75" PointY="11.375" Height="2.5571907552083282" />
+        <AssociationConnector Association="Modelo.TICKET_EVENTO_FK" >
+          <ConnectorPoint PointX="15" PointY="11.96875" />
+          <ConnectorPoint PointX="15.75" PointY="11.96875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Modelo.TIPO_TICKET" Width="1.5" PointX="13" PointY="17.5" Height="1.980286458333328" />
+        <AssociationConnector Association="Modelo.TICKET_TIPO_TICKET_FK" >
+          <ConnectorPoint PointX="13.3125" PointY="17.5" />
+          <ConnectorPoint PointX="13.3125" PointY="11.40625" />
+          <ConnectorPoint PointX="15.75" PointY="11.40625" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Modelo.CLIENTE_TICKET" Width="1.5" PointX="11.25" PointY="14.25" Height="2.7494921875000067" />
+        <AssociationConnector Association="Modelo.FK_ASS_9" >
+          <ConnectorPoint PointX="5.6563238862201874" PointY="14.960999348958332" />
+          <ConnectorPoint PointX="5.6563238862201874" PointY="15.771352539062502" />
+          <ConnectorPoint PointX="5.9168194391070417" PointY="15.771352539062502" />
+          <ConnectorPoint PointX="6.0834861057737077" PointY="15.771352539062502" />
+          <ConnectorPoint PointX="6.3854950528868537" PointY="15.771352539062502" />
+          <ConnectorPoint PointX="6.55216171955352" PointY="15.771352539062502" />
+          <ConnectorPoint PointX="9.1877526578776045" PointY="15.771352539062502" />
+          <ConnectorPoint PointX="9.3544193245442724" PointY="15.771352539062502" />
+          <ConnectorPoint PointX="9.4584621622721361" PointY="15.771352539062502" />
+          <ConnectorPoint PointX="9.6251288289388039" PointY="15.771352539062502" />
+          <ConnectorPoint PointX="11.25" PointY="15.771352539062502" />
+        </AssociationConnector>
+        <AssociationConnector Association="Modelo.FK_ASS_10" >
+          <ConnectorPoint PointX="16.46875" PointY="13.932190755208332" />
+          <ConnectorPoint PointX="16.46875" PointY="16.232646484375003" />
+          <ConnectorPoint PointX="13.395833333333334" PointY="16.232646484375003" />
+          <ConnectorPoint PointX="13.229166666666666" PointY="16.232646484375003" />
+          <ConnectorPoint PointX="12.75" PointY="16.232646484375003" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Modelo.ASIENTO" Width="1.5" PointX="17.25" PointY="14.375" Height="2.3648893229166674" />
+        <AssociationConnector Association="Modelo.ASIENTO_EVENTO_FK" >
+          <ConnectorPoint PointX="15" PointY="14.889150390625" />
+          <ConnectorPoint PointX="16.385416666666668" PointY="14.889150390625" />
+          <ConnectorPoint PointX="16.552083333333332" PointY="14.889150390625" />
+          <ConnectorPoint PointX="17.25" PointY="14.889150390625" />
+        </AssociationConnector>
+        <AssociationConnector Association="Modelo.TICKET_ASIENTO_FK" >
+          <ConnectorPoint PointX="18" PointY="14.375" />
+          <ConnectorPoint PointX="18" PointY="14.182190755208332" />
+          <ConnectorPoint PointX="16.890627000000002" PointY="14.182190755208332" />
+          <ConnectorPoint PointX="16.890627000000002" PointY="13.932190755208332" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

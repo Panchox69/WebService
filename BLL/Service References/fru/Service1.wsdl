@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/WebService" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://localhost/WebService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Servicio Prueba</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/WebService">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="Tipo_Producto_Sel_All">
+        <s:complexType />
+      </s:element>
+      <s:element name="Tipo_Producto_Sel_AllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tipo_Producto_Sel_AllResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tipo_Medida_Sel_All">
+        <s:complexType />
+      </s:element>
+      <s:element name="Tipo_Medida_Sel_AllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tipo_Medida_Sel_AllResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tipo_Cultivo_Sel_All">
+        <s:complexType />
+      </s:element>
+      <s:element name="Tipo_Cultivo_Sel_AllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tipo_Cultivo_Sel_AllResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Direccion_Ins">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="numero" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_comuna" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="coordenada_x" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="coordenada_y" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Direccion_InsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Direccion_InsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Usuario_Sel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="rut" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pas" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Usuario_SelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario_SelResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Usuario_Sel_All">
+        <s:complexType />
+      </s:element>
+      <s:element name="Usuario_Sel_AllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario_Sel_AllResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Productores_Hab_Sel_All">
+        <s:complexType />
+      </s:element>
+      <s:element name="Productores_Hab_Sel_AllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Productores_Hab_Sel_AllResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Productores_Hab_Sel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="rut" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Productores_Hab_SelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Productores_Hab_SelResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Regiones_Sel_All">
+        <s:complexType />
+      </s:element>
+      <s:element name="Regiones_Sel_AllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Regiones_Sel_AllResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Comunas_Sel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idregion" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idcomuna" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Comunas_SelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Comunas_SelResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Usuario_Ins">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="rut" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="contrasena" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_tipo_perfil" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Usuario_InsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Productor_Ins">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="rut" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dv" type="s1:char" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apellido" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sexo" type="s1:char" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_direccionparticular" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="telefono" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="correo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_direccionnegocio" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="mismadireccion" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Productor_InsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Clientes_Ins">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="rut" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dv" type="s1:char" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apellido" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sexo" type="s1:char" />
+            <s:element minOccurs="0" maxOccurs="1" name="correo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="telefono" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bloqueado" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Clientes_InsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Usuarios_Perfiles_Ins">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="rut" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_tipo_perfil" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Usuarios_Perfiles_InsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Cliente_Direcciones_Ins">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="rut" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_direccion" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="primaria" type="s1:char" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Cliente_Direcciones_InsResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="char">
+        <s:restriction base="s:unsignedShort" />
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Tipo_Producto_Sel_AllSoapIn">
+    <wsdl:part name="parameters" element="tns:Tipo_Producto_Sel_All" />
+  </wsdl:message>
+  <wsdl:message name="Tipo_Producto_Sel_AllSoapOut">
+    <wsdl:part name="parameters" element="tns:Tipo_Producto_Sel_AllResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tipo_Medida_Sel_AllSoapIn">
+    <wsdl:part name="parameters" element="tns:Tipo_Medida_Sel_All" />
+  </wsdl:message>
+  <wsdl:message name="Tipo_Medida_Sel_AllSoapOut">
+    <wsdl:part name="parameters" element="tns:Tipo_Medida_Sel_AllResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tipo_Cultivo_Sel_AllSoapIn">
+    <wsdl:part name="parameters" element="tns:Tipo_Cultivo_Sel_All" />
+  </wsdl:message>
+  <wsdl:message name="Tipo_Cultivo_Sel_AllSoapOut">
+    <wsdl:part name="parameters" element="tns:Tipo_Cultivo_Sel_AllResponse" />
+  </wsdl:message>
+  <wsdl:message name="Direccion_InsSoapIn">
+    <wsdl:part name="parameters" element="tns:Direccion_Ins" />
+  </wsdl:message>
+  <wsdl:message name="Direccion_InsSoapOut">
+    <wsdl:part name="parameters" element="tns:Direccion_InsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Usuario_SelSoapIn">
+    <wsdl:part name="parameters" element="tns:Usuario_Sel" />
+  </wsdl:message>
+  <wsdl:message name="Usuario_SelSoapOut">
+    <wsdl:part name="parameters" element="tns:Usuario_SelResponse" />
+  </wsdl:message>
+  <wsdl:message name="Usuario_Sel_AllSoapIn">
+    <wsdl:part name="parameters" element="tns:Usuario_Sel_All" />
+  </wsdl:message>
+  <wsdl:message name="Usuario_Sel_AllSoapOut">
+    <wsdl:part name="parameters" element="tns:Usuario_Sel_AllResponse" />
+  </wsdl:message>
+  <wsdl:message name="Productores_Hab_Sel_AllSoapIn">
+    <wsdl:part name="parameters" element="tns:Productores_Hab_Sel_All" />
+  </wsdl:message>
+  <wsdl:message name="Productores_Hab_Sel_AllSoapOut">
+    <wsdl:part name="parameters" element="tns:Productores_Hab_Sel_AllResponse" />
+  </wsdl:message>
+  <wsdl:message name="Productores_Hab_SelSoapIn">
+    <wsdl:part name="parameters" element="tns:Productores_Hab_Sel" />
+  </wsdl:message>
+  <wsdl:message name="Productores_Hab_SelSoapOut">
+    <wsdl:part name="parameters" element="tns:Productores_Hab_SelResponse" />
+  </wsdl:message>
+  <wsdl:message name="Regiones_Sel_AllSoapIn">
+    <wsdl:part name="parameters" element="tns:Regiones_Sel_All" />
+  </wsdl:message>
+  <wsdl:message name="Regiones_Sel_AllSoapOut">
+    <wsdl:part name="parameters" element="tns:Regiones_Sel_AllResponse" />
+  </wsdl:message>
+  <wsdl:message name="Comunas_SelSoapIn">
+    <wsdl:part name="parameters" element="tns:Comunas_Sel" />
+  </wsdl:message>
+  <wsdl:message name="Comunas_SelSoapOut">
+    <wsdl:part name="parameters" element="tns:Comunas_SelResponse" />
+  </wsdl:message>
+  <wsdl:message name="Usuario_InsSoapIn">
+    <wsdl:part name="parameters" element="tns:Usuario_Ins" />
+  </wsdl:message>
+  <wsdl:message name="Usuario_InsSoapOut">
+    <wsdl:part name="parameters" element="tns:Usuario_InsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Productor_InsSoapIn">
+    <wsdl:part name="parameters" element="tns:Productor_Ins" />
+  </wsdl:message>
+  <wsdl:message name="Productor_InsSoapOut">
+    <wsdl:part name="parameters" element="tns:Productor_InsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Clientes_InsSoapIn">
+    <wsdl:part name="parameters" element="tns:Clientes_Ins" />
+  </wsdl:message>
+  <wsdl:message name="Clientes_InsSoapOut">
+    <wsdl:part name="parameters" element="tns:Clientes_InsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Usuarios_Perfiles_InsSoapIn">
+    <wsdl:part name="parameters" element="tns:Usuarios_Perfiles_Ins" />
+  </wsdl:message>
+  <wsdl:message name="Usuarios_Perfiles_InsSoapOut">
+    <wsdl:part name="parameters" element="tns:Usuarios_Perfiles_InsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Cliente_Direcciones_InsSoapIn">
+    <wsdl:part name="parameters" element="tns:Cliente_Direcciones_Ins" />
+  </wsdl:message>
+  <wsdl:message name="Cliente_Direcciones_InsSoapOut">
+    <wsdl:part name="parameters" element="tns:Cliente_Direcciones_InsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServicePruebaSoap">
+    <wsdl:operation name="Tipo_Producto_Sel_All">
+      <wsdl:input message="tns:Tipo_Producto_Sel_AllSoapIn" />
+      <wsdl:output message="tns:Tipo_Producto_Sel_AllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tipo_Medida_Sel_All">
+      <wsdl:input message="tns:Tipo_Medida_Sel_AllSoapIn" />
+      <wsdl:output message="tns:Tipo_Medida_Sel_AllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tipo_Cultivo_Sel_All">
+      <wsdl:input message="tns:Tipo_Cultivo_Sel_AllSoapIn" />
+      <wsdl:output message="tns:Tipo_Cultivo_Sel_AllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Direccion_Ins">
+      <wsdl:input message="tns:Direccion_InsSoapIn" />
+      <wsdl:output message="tns:Direccion_InsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Usuario_Sel">
+      <wsdl:input message="tns:Usuario_SelSoapIn" />
+      <wsdl:output message="tns:Usuario_SelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Usuario_Sel_All">
+      <wsdl:input message="tns:Usuario_Sel_AllSoapIn" />
+      <wsdl:output message="tns:Usuario_Sel_AllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Productores_Hab_Sel_All">
+      <wsdl:input message="tns:Productores_Hab_Sel_AllSoapIn" />
+      <wsdl:output message="tns:Productores_Hab_Sel_AllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Productores_Hab_Sel">
+      <wsdl:input message="tns:Productores_Hab_SelSoapIn" />
+      <wsdl:output message="tns:Productores_Hab_SelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Regiones_Sel_All">
+      <wsdl:input message="tns:Regiones_Sel_AllSoapIn" />
+      <wsdl:output message="tns:Regiones_Sel_AllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Comunas_Sel">
+      <wsdl:input message="tns:Comunas_SelSoapIn" />
+      <wsdl:output message="tns:Comunas_SelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Usuario_Ins">
+      <wsdl:input message="tns:Usuario_InsSoapIn" />
+      <wsdl:output message="tns:Usuario_InsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Productor_Ins">
+      <wsdl:input message="tns:Productor_InsSoapIn" />
+      <wsdl:output message="tns:Productor_InsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Clientes_Ins">
+      <wsdl:input message="tns:Clientes_InsSoapIn" />
+      <wsdl:output message="tns:Clientes_InsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_Perfiles_Ins">
+      <wsdl:input message="tns:Usuarios_Perfiles_InsSoapIn" />
+      <wsdl:output message="tns:Usuarios_Perfiles_InsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Cliente_Direcciones_Ins">
+      <wsdl:input message="tns:Cliente_Direcciones_InsSoapIn" />
+      <wsdl:output message="tns:Cliente_Direcciones_InsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServicePruebaSoap" type="tns:WebServicePruebaSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Tipo_Producto_Sel_All">
+      <soap:operation soapAction="http://localhost/WebService/Tipo_Producto_Sel_All" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tipo_Medida_Sel_All">
+      <soap:operation soapAction="http://localhost/WebService/Tipo_Medida_Sel_All" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tipo_Cultivo_Sel_All">
+      <soap:operation soapAction="http://localhost/WebService/Tipo_Cultivo_Sel_All" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Direccion_Ins">
+      <soap:operation soapAction="http://localhost/WebService/Direccion_Ins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuario_Sel">
+      <soap:operation soapAction="http://localhost/WebService/Usuario_Sel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuario_Sel_All">
+      <soap:operation soapAction="http://localhost/WebService/Usuario_Sel_All" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Productores_Hab_Sel_All">
+      <soap:operation soapAction="http://localhost/WebService/Productores_Hab_Sel_All" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Productores_Hab_Sel">
+      <soap:operation soapAction="http://localhost/WebService/Productores_Hab_Sel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Regiones_Sel_All">
+      <soap:operation soapAction="http://localhost/WebService/Regiones_Sel_All" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Comunas_Sel">
+      <soap:operation soapAction="http://localhost/WebService/Comunas_Sel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuario_Ins">
+      <soap:operation soapAction="http://localhost/WebService/Usuario_Ins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Productor_Ins">
+      <soap:operation soapAction="http://localhost/WebService/Productor_Ins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Clientes_Ins">
+      <soap:operation soapAction="http://localhost/WebService/Clientes_Ins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_Perfiles_Ins">
+      <soap:operation soapAction="http://localhost/WebService/Usuarios_Perfiles_Ins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Cliente_Direcciones_Ins">
+      <soap:operation soapAction="http://localhost/WebService/Cliente_Direcciones_Ins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServicePruebaSoap12" type="tns:WebServicePruebaSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Tipo_Producto_Sel_All">
+      <soap12:operation soapAction="http://localhost/WebService/Tipo_Producto_Sel_All" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tipo_Medida_Sel_All">
+      <soap12:operation soapAction="http://localhost/WebService/Tipo_Medida_Sel_All" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tipo_Cultivo_Sel_All">
+      <soap12:operation soapAction="http://localhost/WebService/Tipo_Cultivo_Sel_All" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Direccion_Ins">
+      <soap12:operation soapAction="http://localhost/WebService/Direccion_Ins" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuario_Sel">
+      <soap12:operation soapAction="http://localhost/WebService/Usuario_Sel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuario_Sel_All">
+      <soap12:operation soapAction="http://localhost/WebService/Usuario_Sel_All" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Productores_Hab_Sel_All">
+      <soap12:operation soapAction="http://localhost/WebService/Productores_Hab_Sel_All" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Productores_Hab_Sel">
+      <soap12:operation soapAction="http://localhost/WebService/Productores_Hab_Sel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Regiones_Sel_All">
+      <soap12:operation soapAction="http://localhost/WebService/Regiones_Sel_All" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Comunas_Sel">
+      <soap12:operation soapAction="http://localhost/WebService/Comunas_Sel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuario_Ins">
+      <soap12:operation soapAction="http://localhost/WebService/Usuario_Ins" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Productor_Ins">
+      <soap12:operation soapAction="http://localhost/WebService/Productor_Ins" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Clientes_Ins">
+      <soap12:operation soapAction="http://localhost/WebService/Clientes_Ins" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_Perfiles_Ins">
+      <soap12:operation soapAction="http://localhost/WebService/Usuarios_Perfiles_Ins" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Cliente_Direcciones_Ins">
+      <soap12:operation soapAction="http://localhost/WebService/Cliente_Direcciones_Ins" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServicePrueba">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Servicio Prueba</wsdl:documentation>
+    <wsdl:port name="WebServicePruebaSoap" binding="tns:WebServicePruebaSoap">
+      <soap:address location="http://localhost:49193/Service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServicePruebaSoap12" binding="tns:WebServicePruebaSoap12">
+      <soap12:address location="http://localhost:49193/Service1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,65 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="Vistas.MasterPage.Admin" %>
+<%@ Import Namespace="BEL" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+    <link rel="stylesheet" href="../css/sb-admin.css" />
+    <link rel="stylesheet" href="../css/tablas.css" />
+    <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css" />
+    <script src="../../js/jquery-1.11.2.min.js"></script>
+    <script src="../../js/bootstrap.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="height: 110px;">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <!--<a class="navbar-brand" href="">E-Ticket Administración</a>-->
+                <img src="../img/logo_admin.png" width="190" height="80" />
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%= ((UsuarioBEL)Session["usuarioConectado"]).Rut %><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="../../CerrarSesion.aspx"><i class="fa fa-fw fa-power-off"></i> Salir</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <% 
+                        List<MenuBEL> menues = (List<MenuBEL>)Session["_menu"];
+                        foreach (MenuBEL tmpMenu in menues)
+                        {
+                     %>
+                            <li>
+                                <a href="<%=tmpMenu.UrlInterna %>"><i class="fa fa-fw fa-edit"></i> <%= tmpMenu.Campo %></a>
+                            </li>
+                    <%} %>
+                </ul>
+            </div>|
+            <!-- /.navbar-collapse -->
+        </nav>
+        <div id="page-wrapper">
+            
+            <div class="container-fluid">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            
+        </div>
+    </div>
+     </form>
+</body>
+</html>

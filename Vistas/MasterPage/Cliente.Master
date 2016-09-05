@@ -1,0 +1,144 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Cliente.master.cs" Inherits="Vistas.MasterPage.Cliente" %>
+
+<%@ Import Namespace="BEL" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+    <link rel="stylesheet" href="../css/estilos.css" />
+    <link rel="stylesheet" type="text/css" href="../css/liquidcarousel.css" />
+    <link rel="stylesheet" type="text/css" href="../css/tablas.css" />
+    <script src="../js/jquery-1.11.2.min.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="MyScriptManager1" runat="server" />
+    <div class=" header col-md-12">
+        <span class="login">
+            <img src="../img/icon/login.png" width="50" height="50" data-toggle="modal" data-target=".bs-example-modal-sm" />
+            <% UsuarioBEL usuario = (UsuarioBEL)Session["usuarioConectado"];%>
+            <% if (usuario != null)
+               { %>
+            <p style="color: #000;">
+                Bienvenido, <a href="../VistasClientes/Perfil_datos.aspx">
+                    <%= usuario.Rut%></a></p>
+            <a href="../VistasClientes/Perfil_datos.aspx">Modificar mis Datos</a>
+            <a href="../CerrarSesion.aspx">Cerrar Sesión</a>
+            <%}
+               else
+               { %>
+            <p style="color: #000;">
+                Bienvenido</p>
+            <%} %>
+        </span>
+        <div style="padding: 15px;">
+            <div class="col-md-2">
+                <a href="../Inicio.aspx">
+                    <img src="../img/logo.png" alt="logo" title="E-ticket" width="251" height="140" /></a>
+            </div>
+            <div class="opciones col-md-8">
+                <div class="col-md-4" style="margin-left: 20px; border-right: 1px solid;">
+                    <a href="../Inicio.aspx" title="Eventos por Semana">Inicio</a>
+                </div>
+                <div class="col-md-4" style="border-right: 1px solid;">
+                    <a href="../VistasClientes/EventosSemana.aspx" title="Eventos por Semana">Eventos en
+                        la semana</a>
+                </div>
+                <div class="col-md-3">
+                    <a href="../VistasClientes/Proximamente.aspx" title="Proximamente">Próximamente</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body dentro">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="padding: 10px;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="gridSystemModalLabel">
+                        Iniciar sesión</h4>
+                </div>
+                <div class="modal-body" align="center">
+                    <%--<asp:Login ID="Login1" runat="server" DisplayRememberMe="False" 
+                        HelpPageText="¿No estas registrado? Regístrate aquí" HelpPageUrl="~/VistasClientes/Registro.aspx" 
+                        LoginButtonText="Ingresar" TitleText="" UserNameLabelText="Usuario:" 
+                        onauthenticate="Login1_Authenticate">
+                    <LoginButtonStyle CssClass="btn btn-primary" />
+                    <TextBoxStyle CssClass="form-control" />
+                    </asp:Login>--%>
+                    
+                    <asp:UpdatePanel ID="UpdatePanel11" runat="server">
+                        <ContentTemplate>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h4>
+                                        Rut :
+                                    </h4>
+                                </div>
+                                <div class="col-md-6">
+                                    <asp:TextBox ID="txtRut" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtRut"
+                                        ErrorMessage="Debe ingresar RUT o RUN" ForeColor="Red" Display="Dynamic" ValidationGroup="validaCliente"></asp:RequiredFieldValidator>
+                                    <asp:Label ID="lblM" runat="server" Text="RUN o RUT no válido" Visible="false"
+                                        ForeColor="Red" Font-Bold="true"></asp:Label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h4>
+                                        Password :
+                                    </h4>
+                                </div>
+                                <div class="col-md-6">
+                                    <asp:TextBox ID="txtPass" runat="server" CssClass="form-control" OnTextChanged="rutChange"
+                                        TextMode="Password"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="rfPass" runat="server" ControlToValidate="txtPass"
+                                        ErrorMessage="Debe ingresar Contraseña" ForeColor="Red" Display="Dynamic" ValidationGroup="validaCliente"></asp:RequiredFieldValidator>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <asp:Label ID="lblError" runat="server" Text="ERROR, Usuario o Contraseña incorrectas" Visible="false" ForeColor="Red"
+                                    Font-Bold="true"></asp:Label>
+                            </div>
+                            <div class="row">
+                                &nbsp;
+                            </div>
+                            <div class="row">
+                                <a href="/VistasClientes/Registro.aspx" class="lnk">¿No estas registrado? Regístrate
+                                    aquí</a>
+                            </div>
+                            <div class="row">
+                                &nbsp;
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 col-md-offset-5">
+                                    <asp:Button ID="btnSubmit" runat="server" Text="Ingresar" CssClass="btn btn-lg btn-primary btn-block"
+                                        OnClick="Login1_Authenticate" ValidationGroup="validaCliente" />
+                                <//div>
+                            </div>
+                        </ContentTemplate>
+                        <Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="btnSubmit" EventName="Click" />
+                        </Triggers>
+                    </asp:UpdatePanel>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

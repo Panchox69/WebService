@@ -1,0 +1,67 @@
+﻿body 
+{
+    background-attachment: fixed;
+    background-color: #023d61;
+    background-image: url("../img/bg_body.png");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.header
+{
+    padding-left:10%;
+    padding-top:2%;
+}
+.content
+{
+    padding: 10px 100px 100px;
+    
+}
+    .content .panel
+    {
+        border-radius: 10px;
+        background:rgba(255,255,255,0.7)    /* 70% opaque red */ 
+    }
+.opciones div
+{
+    line-height: 86px;
+    text-align: center;
+}
+.opciones a
+{
+    color:#FFF;
+    text-decoration:none;
+    font-weight:bold;
+}
+.opciones a:hover
+{
+    color:#FFBB00;
+}
+.login
+{
+    position:relative;
+    top:0;
+    float:right;
+    width:12%;
+    border: 1px solid #999;
+    border-radius: 10px;
+    padding:5px;
+    background:yellow;
+}
+.login img
+{
+    float:left;
+    cursor:pointer;
+}
+#Login1
+{
+    width:70%;
+}
+#Login1 table
+{
+    width:100%;
+}
+#Login1 table label
+{
+    float:left;
+}
