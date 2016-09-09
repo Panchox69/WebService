@@ -8,6 +8,7 @@ namespace BEL
     public class ProductosBEL
     {
         #region Atributos
+        private int _id_producto;        
         private int _rut_productor;
         private int _id_tipo_producto;
         private int _oferta;
@@ -22,6 +23,11 @@ namespace BEL
         #endregion
 
         #region Propiedades
+        public int Id_producto
+        {
+            get { return _id_producto; }
+            set { _id_producto = value; }
+        }
         public int Rut_productor
         {
           get { return _rut_productor; }
@@ -76,7 +82,8 @@ namespace BEL
         {
           get { return _activo; }
           set { _activo = value; }
-        }  
+        }
+        public String Ubicacion { get; set; }
         #endregion
 
         #region Contructores

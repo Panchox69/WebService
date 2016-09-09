@@ -19,9 +19,9 @@ namespace Vistas.VAdm_OrganizadorDeEventos
             if(!IsPostBack)
             {
                 EventoBLL evBLL = new EventoBLL();
-                PerfilBEL usuario = (PerfilBEL)Session["usuarioConectado"];
-                String[] separadorRut = usuario.Usuario.Split('-');
-                grvEventos.DataSource = evBLL.traerEventos(Int32.Parse(separadorRut[0]));
+                //UsuarioBEL usuario = new UsuarioBEL();
+                UsuarioBEL usuario = (UsuarioBEL)Session["usuarioConectado"];
+                grvEventos.DataSource = evBLL.traerEventos(usuario.Rut);
                 grvEventos.DataBind();
 
                 RecintoBLL recBLL = new RecintoBLL();

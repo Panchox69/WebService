@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BEL;
 using BLL;
+using System.Data;
 
 namespace Vistas.VistasClientes
 {
@@ -43,15 +44,33 @@ namespace Vistas.VistasClientes
 
         private void cargaEventos()
         {
-            EventoBLL events = new EventoBLL();
-            List<EventoBEL> eventos = new List<EventoBEL>();
-            int id = Int32.Parse(ddlFiltro.SelectedValue);
-            if (id == -5)
-            {
-                id = 6;
-            }
-            eventos = events.traerEventoPorTipoEvento(id);
-            grvEventos.DataSource = eventos;
+           /* DataTable table = new DataTable();
+            table.Columns.Add("Imagen");
+            table.Columns.Add("Nombre");
+            table.Columns.Add("Tipo");
+            table.Columns.Add("Productor");
+            table.Columns.Add("TipoUnidad");
+            table.Columns.Add("Precio");
+            table.Columns.Add("Stock");
+
+                      
+
+            DataRow row1 = table.NewRow();
+            ImagenesBLL imaBLL = new ImagenesBLL();
+            List<ImagenesBEL> imagenes = new List<ImagenesBEL>();
+            imagenes = imaBLL.Imagenes_Sel_All();
+            table.Rows.Add(row1);
+
+            DataRow row2 = table.NewRow();*/
+            ProductosBLL proBLL = new ProductosBLL();
+            List<ProductosBEL> productos = new List<ProductosBEL>();
+            productos = proBLL.Productos_Sel_All();
+           
+            //table.Rows.Add(row1);
+
+            //eventos = events.traerEventoPorTipoEvento(id);
+            //grvEventos.DataSource = table;
+            grvEventos.DataSource = productos;
             grvEventos.DataBind();
         }
 
@@ -79,5 +98,8 @@ namespace Vistas.VistasClientes
         {
             cargaEventos();
         }
+
+
+        
     }
 }

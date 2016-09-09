@@ -62,6 +62,16 @@
                             ErrorMessage="N° incorrecto" ForeColor="Red" Display="Dynamic"
                             ValidationGroup="validaEvento" ValidationExpression="^[0-9]+$"></asp:RegularExpressionValidator>
                     </div>
+                    <div class="form-group col-md-12">
+                        <label class="control-label">
+                          Zona Cultivo</label>
+                          <asp:TextBox ID="txtZona" runat="server" class="form-control" placeholder="Naranja"></asp:TextBox>
+                          <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtZona"
+                          ErrorMessage="Debe ingresar el Nombre" ForeColor="Red" Display="Dynamic" ValidationGroup="ValidaIngreso"></asp:RequiredFieldValidator>
+                          <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtNombre"
+                          ErrorMessage="El Nombre solo puede contener letras" ForeColor="Red" Display="Dynamic"
+                          ValidationGroup="validaEvento" ValidationExpression="^[a-zA-Z ñÑÁÉÍÓÚáéióú]*$"></asp:RegularExpressionValidator>
+                    </div>
               </div> 
           </div>
        </div> 

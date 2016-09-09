@@ -47,6 +47,7 @@
     <Compile Include="ComunaBEL.cs" />
     <Compile Include="DireccionBEL.cs" />
     <Compile Include="EventoBEL.cs" />
+    <Compile Include="ImagenesBEL.cs" />
     <Compile Include="InteresBEL.cs" />
     <Compile Include="MenuBEL.cs" />
     <Compile Include="OrganizadorBEL.cs" />

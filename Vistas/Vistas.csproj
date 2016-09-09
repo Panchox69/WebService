@@ -458,6 +458,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="img\Productos\" />
     <Folder Include="img\Recintos\" />
   </ItemGroup>
   <ItemGroup>

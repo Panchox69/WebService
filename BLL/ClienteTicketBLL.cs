@@ -175,6 +175,7 @@ namespace BLL
                                                              Correo = tmpCliTick.CORREO,
                                                              Habilitado = (int)tmpCliTick.HABILITADO,
                                                              NombreEvento = tmpEv.NOMBRE
+                                                             
                                                          }).ToList();
                 return cliente_ticket;
             }
@@ -195,6 +196,7 @@ namespace BLL
             {
                 Entidades conexion = ConexionBLL.getConexion();
                 List<ClienteTicketBEL> cliente_ticket = (from tmpCliTick in conexion.CLIENTE_TICKET
+                                                         
                                                          join tmpTick in conexion.TICKET on tmpCliTick.TICKET_ID_TICKET equals tmpTick.ID_TICKET
                                                          join tmpEv in conexion.EVENTO on tmpTick.ID_EVENTO equals tmpEv.ID_EVENTO
                                                          where tmpEv.RUT == rut && tmpEv.ID_EVENTO == idEvento

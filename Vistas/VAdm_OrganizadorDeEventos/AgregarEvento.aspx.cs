@@ -101,23 +101,48 @@ namespace Vistas.VAdm_OrganizadorDeEventos
             UsuarioBEL usuario = (UsuarioBEL)Session["usuarioConectado"];
             int rut = usuario.Rut;
 
+            ProductorBEL proBEL = new ProductorBEL();
+            ProductorBLL proBLL = new ProductorBLL();
+            proBEL = proBLL.Productor_Sel(rut);
 
-            //evBEL.Nombre = txtNombre.Text;
-            //evBEL.Descripcion = txtDescripcion.Text;
-            //evBEL.AsientosDisponibles = 0;
-            /*evBEL.IdTipoEvento = Int32.Parse(ddlTipoEvento.SelectedItem.Value);
-            evBEL.IdRecinto = Int32.Parse(ddlRecinto.SelectedItem.Value);
-            evBEL.Rut = Int32.Parse(separadorRut[0]);
-            evBEL.Fecha = DateTime.Parse(txtFecha.Text);
+            ProductosBEL proBel = new ProductosBEL();
+
+            proBel.Rut_productor = proBEL.Rut;
+            proBel.Id_tipo_producto = Int32.Parse(ddlTipo.SelectedItem.Value);
+            if (chkOferta.Checked)
+                proBel.Oferta = 1;
+            else
+                proBel.Oferta = 0;
+            proBel.Descripcion_elaboracion = txtDescripcion.Text;
+            proBel.Id_direccion = proBEL.Id_direccionnegocio;
+            proBel.Zona_cultivo = txtZona.Text;
+            proBel.Stock = Convert.ToInt32(txtStock.Text);
+            proBel.Precio_unitario = Convert.ToInt32(txtPrecio.Text);
+            proBel.Id_medida = Int32.Parse(ddlMedida.SelectedItem.Value);
+            proBel.Id_tipo_cultivo = Int32.Parse(ddlCultivo.SelectedItem.Value);
+            proBel.Activo = 1;
+
+            ProductosBLL proBll = new ProductosBLL();
+            int id = proBll.agregarProductos(proBel);
+
             if (validaImagen(subirImagen.PostedFile.FileName))
             {
-                strFileName = subirImagen.PostedFile.FileName;
-                String strFolderSave = Server.MapPath("../img/eventos/");
-                strFileSave = "/img/eventos/" + strFileName;
-                evBEL.Imagen = strFileSave;
-                evBEL.Estado = "V";
+                strFileName = System.IO.Path.GetFileName(subirImagen.PostedFile.FileName);
+                String strFolderSave = Server.MapPath("../img/Productos/");
+                strFileSave = "/img/Productos/" + strFileName;
+
+                ImagenesBEL imaBEL = new ImagenesBEL();
+                imaBEL.Id_producto = id;
+                imaBEL.Nombre = txtNombre.Text;
+                imaBEL.Descripcion = txtDescripcionI.Text;
+                imaBEL.Orden = Convert.ToInt32(txtOrden.Text);
+                imaBEL.Fecha = DateTime.Today;
+                imaBEL.Ubicacion = strFileSave;                
                 subirImagen.PostedFile.SaveAs(strFolderSave + strFileName);
-            }*/
+
+                ImagenesBLL imaBLL = new ImagenesBLL();
+                imaBLL.agregarImagenes(imaBEL);
+            } 
 
             /// <summary>
             /// Agrega el evento

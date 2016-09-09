@@ -16,6 +16,30 @@ namespace BLL.fru {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://localhost/WebService", ConfigurationName="fru.WebServicePruebaSoap")]
     public interface WebServicePruebaSoap {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/WebService/Productos_Sel_All", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet Productos_Sel_All();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/WebService/Imagenes_Sel_All", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet Imagenes_Sel_All();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/WebService/Productor_Sel", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet Productor_Sel(int rut);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/WebService/Productor_Sel_All", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet Productor_Sel_All();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/WebService/Imagenes_Ins", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void Imagenes_Ins(int id_producto, string nombre, string descripcion, int orden, System.DateTime fecha, string ubicacion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/WebService/Productos_Ins", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        int Productos_Ins(int rut_productor, int id_tipo_producto, int oferta, string descripcion_elaboracion, int id_direccion, string zona_cultivo, int stock, int precio_unitario, int id_medida, int id_tipo_cultivo, int activo);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/WebService/Tipo_Producto_Sel_All", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataSet Tipo_Producto_Sel_All();
@@ -102,6 +126,30 @@ namespace BLL.fru {
         
         public WebServicePruebaSoapClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public System.Data.DataSet Productos_Sel_All() {
+            return base.Channel.Productos_Sel_All();
+        }
+        
+        public System.Data.DataSet Imagenes_Sel_All() {
+            return base.Channel.Imagenes_Sel_All();
+        }
+        
+        public System.Data.DataSet Productor_Sel(int rut) {
+            return base.Channel.Productor_Sel(rut);
+        }
+        
+        public System.Data.DataSet Productor_Sel_All() {
+            return base.Channel.Productor_Sel_All();
+        }
+        
+        public void Imagenes_Ins(int id_producto, string nombre, string descripcion, int orden, System.DateTime fecha, string ubicacion) {
+            base.Channel.Imagenes_Ins(id_producto, nombre, descripcion, orden, fecha, ubicacion);
+        }
+        
+        public int Productos_Ins(int rut_productor, int id_tipo_producto, int oferta, string descripcion_elaboracion, int id_direccion, string zona_cultivo, int stock, int precio_unitario, int id_medida, int id_tipo_cultivo, int activo) {
+            return base.Channel.Productos_Ins(rut_productor, id_tipo_producto, oferta, descripcion_elaboracion, id_direccion, zona_cultivo, stock, precio_unitario, id_medida, id_tipo_cultivo, activo);
         }
         
         public System.Data.DataSet Tipo_Producto_Sel_All() {

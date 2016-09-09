@@ -12,33 +12,39 @@
         </asp:DropDownList>
         <hr />
          <div class="col-md-12">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <asp:GridView ID="grvEventos" runat="server" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true"
                 Visible="true" EmptyDataText="No se encontraron registros" CssClass="table_ticket table table-bordered"
                 AllowPaging="true" PageSize="5" 
-                OnPageIndexChanging="grvEventos_OnPageIndexChanging" >
+                OnPageIndexChanging="grvEventos_OnPageIndexChanging"  >
                 <Columns>                    
                     <asp:TemplateField>
                         <HeaderTemplate>
                             <h3>Eventos</h3>
                         </HeaderTemplate>
                         <ItemTemplate>
-                            <img src="<%#Eval("Imagen")%>" width="200" height="300" alt="">                            
+                            <img src="<%#Eval("Ubicacion")%>" width="100" height="100" alt="">                            
                         </ItemTemplate>
                           </asp:TemplateField>  
                          <asp:TemplateField>
                          <ItemTemplate >                  
-                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("Nombre") %>' Font-Size="Large" Font-Bold="True"></asp:Label>
+                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("Id_producto") %>' Font-Size="Large" Font-Bold="True"></asp:Label>
                              <br>
                     </br>
                              <br>
                     </br>
-                    <asp:Label ID="Label6" runat="server" Text='<%# Eval("Descripcion") %>' ></asp:Label>
+                    <asp:Label ID="Label6" runat="server" Text='<%# Eval("Id_producto") %>' ></asp:Label>
                              <br>
                     </br>
                              <br>
                     </br>
-                    <a href="SeleccionEntradas.aspx?evento=<%# Eval("IdEvento") %>" style="text-align:right" ><h4>Comprar</h4></a>      
+                    <a href="SeleccionEntradas.aspx?evento=<%# Eval("Id_producto") %>" style="text-align:right" ><h4>Comprar</h4></a>      
+               
+           </ItemTemplate>  
+            <ItemTemplate >                  
+                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("Id_producto") %>' Font-Size="Large" Font-Bold="True"></asp:Label>
+                             <br>
+                    </br>    
                
            </ItemTemplate>  
                     </asp:TemplateField>   
